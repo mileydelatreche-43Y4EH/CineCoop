@@ -8,7 +8,10 @@
       name="description"
       content="Watch movies and shows together. Synced playback, invite links, Discord chat. Up to 4 friends."
     />
-    <link rel="icon" href="assets/icon128.png" />
+    <link rel="icon" href="assets/favicon.ico?v=4" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4" />
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png?v=4" />
+    <link rel="apple-touch-icon" href="assets/favicon-48.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +25,7 @@
 
     <header class="site-header" id="header">
       <a class="brand" href="#">
-        <img src="assets/icon128.png" alt="" class="brand-icon" width="36" height="36" />
+        <img src="assets/brand-cp-48.png" alt="" class="brand-icon" width="44" height="44" />
         <span class="brand-name">CineCoop</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
@@ -70,23 +73,22 @@
 
       <section class="platforms reveal" data-reveal aria-label="Supported platforms">
         <p class="platforms-label">Host a watch party on</p>
-        <ul class="platforms-row">
-          <li><img src="assets/logos/brand/disney.png" alt="Disney+" class="logo-disney" width="120" height="40" /></li>
-          <li><img src="assets/logos/brand/hulu.png" alt="Hulu" class="logo-hulu" width="72" height="28" /></li>
-          <li><img src="assets/logos/brand/hbo.png" alt="HBO" class="logo-hbo" width="72" height="28" /></li>
-          <li><img src="assets/logos/brand/amazon.png" alt="Amazon Prime Video" class="logo-amazon" width="110" height="34" /></li>
-          <li><img src="assets/logos/brand/youtube.png" alt="YouTube" class="logo-youtube" width="130" height="30" /></li>
-          <li><img src="assets/logos/brand/netflix.png" alt="Netflix" class="logo-netflix" width="110" height="30" /></li>
-        </ul>
-      </section>
-
-      <section class="showcase-banner reveal" data-reveal>
-        <img
-          src="assets/promo/hero-watch-together.png"
-          alt="CineCoop interface with synchronized chat"
-          class="showcase-banner-img"
-          loading="lazy"
-        />
+        <div class="platforms-marquee">
+          <ul class="platforms-track">
+            <li><img src="assets/logos/brand/netflix.png" alt="Netflix" /></li>
+            <li><img src="assets/logos/brand/disney.png" alt="Disney+" /></li>
+            <li><img src="assets/logos/brand/hulu.png" alt="Hulu" /></li>
+            <li><img src="assets/logos/brand/hbo.png" alt="HBO" /></li>
+            <li><img src="assets/logos/brand/amazon.png" alt="Amazon Prime Video" /></li>
+            <li><img src="assets/logos/brand/youtube.png" alt="YouTube" /></li>
+            <li aria-hidden="true"><img src="assets/logos/brand/netflix.png" alt="" /></li>
+            <li aria-hidden="true"><img src="assets/logos/brand/disney.png" alt="" /></li>
+            <li aria-hidden="true"><img src="assets/logos/brand/hulu.png" alt="" /></li>
+            <li aria-hidden="true"><img src="assets/logos/brand/hbo.png" alt="" /></li>
+            <li aria-hidden="true"><img src="assets/logos/brand/amazon.png" alt="" /></li>
+            <li aria-hidden="true"><img src="assets/logos/brand/youtube.png" alt="" /></li>
+          </ul>
+        </div>
       </section>
 
       <section class="feature-block light" id="features">
@@ -100,7 +102,7 @@
             </p>
           </div>
           <div class="feature-visual reveal" data-reveal>
-            <div class="shows-video-ring float-y-slow" aria-hidden="true">
+            <div class="shows-video-frame">
               <video
                 class="shows-video"
                 src="assets/landingpage_shows.mp4"
@@ -109,6 +111,7 @@
                 loop
                 playsinline
                 preload="auto"
+                aria-label="Shows and movies on streaming platforms"
               ></video>
             </div>
           </div>
@@ -266,7 +269,7 @@
       <div class="footer-grid">
         <div>
           <a class="brand footer-brand" href="#">
-            <img src="assets/icon128.png" alt="" width="32" height="32" />
+            <img src="assets/brand-cp-48.png" alt="" class="brand-icon" width="40" height="40" />
             <span>CineCoop</span>
           </a>
         </div>

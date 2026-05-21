@@ -112,6 +112,15 @@ img {
   }
 }
 
+@keyframes platforms-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .float-y {
   animation: float-y 5s ease-in-out infinite;
 }
@@ -158,8 +167,17 @@ img {
 }
 
 .brand-icon {
-  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
   transition: transform 0.3s ease;
+}
+
+.site-footer .brand-icon {
+  width: 40px;
+  height: 40px;
 }
 
 .brand:hover .brand-icon {
@@ -378,84 +396,66 @@ img {
   color: rgba(255, 255, 255, 0.45);
 }
 
-.platforms-row {
+.platforms-marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.platforms-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  gap: clamp(28px, 5vw, 64px);
+  gap: clamp(32px, 5vw, 72px);
+  width: max-content;
   list-style: none;
   margin: 0;
-  padding: 0 5vw;
-  max-width: 1100px;
-  margin-inline: auto;
+  padding: 0;
+  animation: platforms-scroll 32s linear infinite;
+  will-change: transform;
 }
 
-.platforms-row li {
+.platforms-marquee:hover .platforms-track {
+  animation-play-state: paused;
+}
+
+.platforms-track li {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  width: 120px;
+  height: 40px;
 }
 
-.platforms-row img {
-  width: auto;
-  height: auto;
-  max-height: 32px;
-  object-fit: contain;
-  opacity: 0.95;
-  transition:
-    opacity 0.3s ease,
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.platforms-row img:hover {
-  opacity: 1;
-  transform: scale(1.06);
-}
-
-.platforms-row .logo-disney {
-  max-height: 36px;
-}
-
-.platforms-row .logo-youtube {
-  max-height: 28px;
-}
-
-.platforms-row .logo-hbo {
-  max-height: 26px;
-}
-
-.platforms-row .logo-hulu {
-  max-height: 24px;
-}
-
-.platforms-row .logo-amazon {
-  max-height: 30px;
-}
-
-.platforms-row .logo-netflix {
-  max-height: 28px;
-}
-
-/* Showcase banner */
-.showcase-banner {
-  padding: 0;
-  background: linear-gradient(180deg, #fff 0%, #eef3ff 100%);
-  overflow: hidden;
-}
-
-.showcase-banner-img {
+.platforms-track img {
+  display: block;
   width: 100%;
-  max-height: 520px;
-  object-fit: cover;
-  object-position: center top;
+  height: 36px;
+  max-width: 120px;
+  object-fit: contain;
+  object-position: center;
   opacity: 0.95;
-  transform: scale(1.01);
-  transition: transform 0.8s ease;
 }
 
-.showcase-banner:hover .showcase-banner-img {
-  transform: scale(1.03);
+@media (prefers-reduced-motion: reduce) {
+  .platforms-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 0 4vw;
+    gap: clamp(16px, 3vw, 40px);
+  }
+
+  .platforms-marquee {
+    mask-image: none;
+  }
+
+  .platforms-track li[aria-hidden="true"] {
+    display: none;
+  }
 }
 
 /* Features */
@@ -475,9 +475,13 @@ img {
   max-width: var(--max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.95fr 1.05fr;
   gap: 48px;
   align-items: center;
+}
+
+#features .feature-inner {
+  gap: 40px 56px;
 }
 
 .feature-inner.reverse .feature-copy {
@@ -527,32 +531,29 @@ img {
   align-items: center;
 }
 
-.shows-video-ring {
-  width: min(440px, 88vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
+.shows-video-frame {
+  width: 100%;
+  max-width: min(720px, 100%);
+  margin: 0 auto;
+  border-radius: 16px;
   overflow: hidden;
-  background: linear-gradient(145deg, #eef2f8 0%, #f8fafc 55%, #e8edf5 100%);
-  box-shadow:
-    0 24px 56px rgba(15, 23, 42, 0.1),
-    inset 0 0 0 1px rgba(47, 102, 255, 0.08);
-  position: relative;
-}
-
-.shows-video-ring::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-  pointer-events: none;
+  background: #fff;
+  box-shadow: 0 20px 56px rgba(15, 23, 42, 0.12);
 }
 
 .shows-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  min-height: 280px;
   display: block;
+  object-fit: contain;
+  background: #fff;
+}
+
+@media (min-width: 900px) {
+  .shows-video {
+    min-height: 340px;
+  }
 }
 
 /* Steps band */
@@ -1049,9 +1050,5 @@ img {
 
   .faq-grid {
     grid-template-columns: 1fr;
-  }
-
-  .showcase-banner-img {
-    max-height: 280px;
   }
 }
