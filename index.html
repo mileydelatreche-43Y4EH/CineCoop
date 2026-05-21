@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineCoop — Watch party synchronisée</title>
+    <title>CineCoop — Synchronized watch party</title>
     <meta
       name="description"
-      content="Regardez films et séries à plusieurs. Sync lecture, invitations par lien, chat Discord. Jusqu'à 4 amis."
+      content="Watch movies and shows together. Synced playback, invite links, Discord chat. Up to 4 friends."
     />
     <link rel="icon" href="assets/icon128.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,17 +18,19 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <header class="site-header" id="header">
       <a class="brand" href="#">
         <img src="assets/icon128.png" alt="" class="brand-icon" width="36" height="36" />
         <span class="brand-name">CineCoop</span>
       </a>
-      <nav class="nav" aria-label="Navigation">
-        <a href="#features">Fonctionnalités</a>
-        <a href="#how">Comment ça marche</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
         <a href="#faq">Support</a>
       </nav>
-      <a class="btn btn-primary btn-sm" href="#install" id="nav-install">Installer CineCoop</a>
+      <a class="btn btn-primary btn-sm" href="#install" id="nav-install">Install CineCoop</a>
       <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -36,120 +38,146 @@
 
     <main>
       <section class="hero">
-        <div class="hero-visual">
-          <div class="mock-browser">
-            <div class="mock-bar">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="mock-screen">
-              <div class="mock-video">
-                <div class="mock-play">▶</div>
-              </div>
-              <aside class="mock-panel">
-                <div class="mock-panel-head">CineCoop</div>
-                <div class="mock-members">
-                  <span class="dot on"></span><span>Hôte</span>
-                  <span class="dot"></span><span>Invité</span>
-                </div>
-                <div class="mock-chat">
-                  <p><b>Léa</b> Prêt pour l'épisode ?</p>
-                  <p><b>Tom</b> 🔥</p>
-                </div>
-                <div class="mock-compose">Écrivez un message…</div>
-              </aside>
-            </div>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-visual reveal" data-reveal>
+          <div class="promo-frame float-y">
+            <img
+              src="assets/promo/hero-watch-together.png"
+              alt="CineCoop — watch in sync with friends on desktop and mobile"
+              class="promo-img"
+              width="720"
+              height="480"
+              loading="eager"
+            />
           </div>
         </div>
         <div class="hero-copy">
-          <p class="eyebrow">REGARDER ENSEMBLE</p>
-          <h1>Une nouvelle façon de streamer entre amis</h1>
-          <p class="lead">
-            CineCoop synchronise la lecture sur vos plateformes préférées et ajoute un chat de
-            groupe. Même scène, même moment — jusqu'à <strong>4 personnes</strong>.
+          <p class="eyebrow reveal" data-reveal>WATCH TOGETHER</p>
+          <h1 class="reveal" data-reveal style="--d: 1">Watch TV in sync with friends</h1>
+          <p class="lead reveal" data-reveal style="--d: 2">
+            CineCoop syncs playback and adds group chat. Same scene, same moment — up to
+            <strong>4 people</strong>.
           </p>
-          <p class="lead-sub">
-            Netflix, YouTube, Disney+, Prime Video, Max, Spotify et bien d'autres services.
+          <p class="lead-sub reveal" data-reveal style="--d: 3">
+            Available on Netflix, Disney+, Prime Video, Max, YouTube, Hulu, and more.
           </p>
-          <a class="btn btn-primary btn-lg" href="#install" id="hero-install">Installer CineCoop gratuitement</a>
-          <p class="fine">* Disponible sur Google Chrome</p>
+          <a class="btn btn-primary btn-lg reveal" data-reveal style="--d: 4" href="#install" id="hero-install"
+            >Get CineCoop for free</a
+          >
+          <p class="fine reveal" data-reveal style="--d: 5">* Google Chrome</p>
         </div>
       </section>
 
-      <section class="platforms">
-        <p class="platforms-label">Organisez une watch party sur</p>
-        <div class="platforms-row">
-          <img src="assets/logos/netflix.svg" alt="Netflix" />
-          <img src="assets/logos/youtube.svg" alt="YouTube" />
-          <img src="assets/logos/disney.svg" alt="Disney+" />
-          <img src="assets/logos/max.svg" alt="Max" />
-          <img src="assets/logos/hulu.svg" alt="Hulu" />
-          <img src="assets/logos/prime.svg" alt="Prime Video" />
-        </div>
+      <section class="platforms reveal" data-reveal aria-label="Supported platforms">
+        <p class="platforms-label">Host a watch party on</p>
+        <ul class="platforms-row">
+          <li><img src="assets/logos/brand/disney.png" alt="Disney+" class="logo-disney" width="120" height="40" /></li>
+          <li><img src="assets/logos/brand/hulu.png" alt="Hulu" class="logo-hulu" width="72" height="28" /></li>
+          <li><img src="assets/logos/brand/hbo.png" alt="HBO" class="logo-hbo" width="72" height="28" /></li>
+          <li><img src="assets/logos/brand/amazon.png" alt="Amazon Prime Video" class="logo-amazon" width="110" height="34" /></li>
+          <li><img src="assets/logos/brand/youtube.png" alt="YouTube" class="logo-youtube" width="130" height="30" /></li>
+          <li><img src="assets/logos/brand/netflix.png" alt="Netflix" class="logo-netflix" width="110" height="30" /></li>
+        </ul>
+      </section>
+
+      <section class="showcase-banner reveal" data-reveal>
+        <img
+          src="assets/promo/hero-watch-together.png"
+          alt="CineCoop interface with synchronized chat"
+          class="showcase-banner-img"
+          loading="lazy"
+        />
       </section>
 
       <section class="feature-block light" id="features">
-        <div class="feature-inner reverse">
-          <div class="feature-copy">
-            <p class="eyebrow dark">DES MILLIERS DE CONTENUS</p>
-            <h2>Regardez sur vos sites de streaming</h2>
+        <div class="feature-inner">
+          <div class="feature-copy reveal" data-reveal>
+            <p class="eyebrow dark">MILLIONS OF SHOWS &amp; MOVIES</p>
+            <h2>Watch right on your favorite streaming sites</h2>
             <p>
-              Ouvrez une vidéo sur une plateforme compatible, lancez CineCoop et invitez vos amis.
-              La session reste liée à la page : play, pause et avance sont partagés en temps réel.
+              Create a watch party in seconds on Netflix, YouTube, Hulu, Disney+, Max, or Prime
+              Video — and stream thousands of great shows together with friends.
             </p>
           </div>
-          <div class="poster-grid" aria-hidden="true">
-            <div class="poster p1"></div>
-            <div class="poster p2"></div>
-            <div class="poster p3"></div>
-            <div class="poster p4"></div>
-            <div class="poster p5"></div>
-            <div class="poster p6"></div>
+          <div class="feature-visual reveal" data-reveal>
+            <div class="shows-video-ring float-y-slow" aria-hidden="true">
+              <video
+                class="shows-video"
+                src="assets/landingpage_shows.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps-band">
+        <div class="steps-band-inner reveal" data-reveal>
+          <div class="steps-band-copy">
+            <p class="eyebrow light">3 STEPS</p>
+            <h2>Get the party started in a few clicks</h2>
+            <ul class="steps-mini">
+              <li class="reveal" data-reveal style="--d: 0">
+                <span class="step-num">1</span>
+                <div>
+                  <strong>Install CineCoop</strong>
+                  <p>Chrome Web Store → Add to Chrome</p>
+                </div>
+              </li>
+              <li class="reveal" data-reveal style="--d: 1">
+                <span class="step-num">2</span>
+                <div>
+                  <strong>Open a video</strong>
+                  <p>Netflix, Disney+, YouTube, Prime… then launch CineCoop</p>
+                </div>
+              </li>
+              <li class="reveal" data-reveal style="--d: 2">
+                <span class="step-num">3</span>
+                <div>
+                  <strong>Share the link</strong>
+                  <p>Invite your friends to the watch party</p>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-primary" href="#install">Get started</a>
+          </div>
+          <div class="steps-band-visual float-y-slow">
+            <img
+              src="assets/promo/steps-three.png"
+              alt="Three steps to start a CineCoop watch party"
+              class="steps-promo-img"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
 
       <section class="feature-block gray">
         <div class="feature-inner">
-          <div class="feature-copy">
-            <p class="eyebrow dark">SYNCHRONISATION</p>
-            <h2>Sync parfaite en HD</h2>
+          <div class="feature-copy reveal" data-reveal>
+            <p class="eyebrow dark">SYNC</p>
+            <h2>Perfect sync + built-in chat</h2>
             <p>
-              Quand l'hôte met en pause ou avance, tout le monde suit. Fini le « tu es à quelle
-              minute ? » — la watch party reste alignée, que vous soyez à côté ou à des kilomètres.
+              When the host pauses or skips, everyone follows. Chat, reactions, GIFs — and with
+              Discord: voice and video.
             </p>
           </div>
-          <div class="devices-mock">
-            <div class="device laptop">
-              <div class="device-screen"></div>
+          <div class="stats-grid reveal" data-reveal>
+            <div class="stat-card">
+              <span class="stat-value">4</span>
+              <span class="stat-label">max players</span>
             </div>
-            <div class="device phone"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="feature-block light">
-        <div class="feature-inner reverse">
-          <div class="feature-copy">
-            <p class="eyebrow dark">PERSONNALISATION</p>
-            <h2>Façonnez votre session</h2>
-            <p>
-              Pseudo, contrôle réservé à l'hôte, position du chat, réactions et GIF. Connectez
-              Discord pour le chat complet, le micro et la caméra.
-            </p>
-          </div>
-          <div class="custom-cards">
-            <div class="custom-card">
-              <h3>Pseudo de session</h3>
-              <div class="fake-input">Mon pseudo</div>
+            <div class="stat-card">
+              <span class="stat-value">HD</span>
+              <span class="stat-label">smooth sync</span>
             </div>
-            <div class="custom-card">
-              <h3>Contrôle hôte</h3>
-              <label class="fake-toggle"><span class="on"></span> Seul l'hôte pilote</label>
-            </div>
-            <div class="custom-card wide">
-              <h3>Chat &amp; vocal</h3>
-              <p class="muted">Login Discord optionnel — la party marche sans compte.</p>
-              <button type="button" class="btn btn-primary">Login</button>
+            <div class="stat-card">
+              <span class="stat-value">∞</span>
+              <span class="stat-label">platforms</span>
             </div>
           </div>
         </div>
@@ -157,28 +185,27 @@
 
       <section class="how" id="how">
         <div class="how-layout">
-          <div class="how-left">
-            <h2>Comment utiliser CineCoop</h2>
+          <div class="how-left reveal" data-reveal>
+            <h2>How to use CineCoop</h2>
             <ol class="steps-list" role="tablist">
-              <li><button type="button" class="step-btn active" data-step="0">1. Installer CineCoop</button></li>
-              <li><button type="button" class="step-btn" data-step="1">2. Ouvrir une vidéo</button></li>
-              <li><button type="button" class="step-btn" data-step="2">3. Créer une session</button></li>
-              <li><button type="button" class="step-btn" data-step="3">4. Inviter des amis</button></li>
-              <li><button type="button" class="step-btn" data-step="4">5. Profiter ensemble</button></li>
+              <li><button type="button" class="step-btn active" data-step="0">1. Install CineCoop</button></li>
+              <li><button type="button" class="step-btn" data-step="1">2. Open a video</button></li>
+              <li><button type="button" class="step-btn" data-step="2">3. Create a session</button></li>
+              <li><button type="button" class="step-btn" data-step="3">4. Invite friends</button></li>
+              <li><button type="button" class="step-btn" data-step="4">5. Enjoy together</button></li>
             </ol>
-            <a class="btn btn-primary" href="#install">Installer CineCoop</a>
+            <a class="btn btn-primary" href="#install">Install CineCoop</a>
           </div>
-          <div class="how-right">
+          <div class="how-right reveal" data-reveal>
             <div class="step-screen" id="step-screen">
-              <span class="step-tag">Étape 01</span>
-              <h3 id="step-title">Installer CineCoop</h3>
+              <span class="step-tag">Step 01</span>
+              <h3 id="step-title">Install CineCoop</h3>
             </div>
             <div class="step-detail" id="step-detail">
-              <h4>1. Installer CineCoop</h4>
+              <h4>1. Install CineCoop</h4>
               <p>
-                Cliquez sur <strong>Installer CineCoop</strong> pour ouvrir le Chrome Web Store,
-                puis <strong>Ajouter à Chrome</strong>. Épinglez l'extension pour y accéder
-                rapidement.
+                Click <strong>Install CineCoop</strong> to open the Chrome Web Store, then
+                <strong>Add to Chrome</strong>.
               </p>
             </div>
           </div>
@@ -186,66 +213,52 @@
       </section>
 
       <section class="faq-hero" id="faq">
-        <h2>Questions fréquentes</h2>
-        <p>Tout ce qu'il faut savoir pour lancer votre première watch party.</p>
+        <h2 class="reveal" data-reveal>Frequently asked questions</h2>
+        <p class="reveal" data-reveal>Everything you need for your first watch party.</p>
         <div class="faq-grid">
-          <a class="faq-card" href="#faq-list"><span>⚙️</span><h3>Installation</h3><p>Chrome et mise à jour</p></a>
-          <a class="faq-card" href="#faq-list"><span>🎬</span><h3>Héberger</h3><p>Créer et gérer une session</p></a>
-          <a class="faq-card" href="#faq-list"><span>👥</span><h3>Rejoindre</h3><p>Lien d'invitation</p></a>
-          <a class="faq-card" href="#faq-list"><span>💬</span><h3>Chat Discord</h3><p>Messages, GIF, micro</p></a>
-          <a class="faq-card" href="#faq-privacy"><span>🔒</span><h3>Confidentialité</h3><p>Données et sécurité</p></a>
-          <a class="faq-card" href="#faq-list"><span>🌐</span><h3>Plateformes</h3><p>Sites compatibles</p></a>
+          <a class="faq-card reveal" data-reveal href="#faq-list"><span>⚙️</span><h3>Install</h3><p>Chrome</p></a>
+          <a class="faq-card reveal" data-reveal style="--d: 1" href="#faq-list"><span>🎬</span><h3>Host</h3><p>Session</p></a>
+          <a class="faq-card reveal" data-reveal style="--d: 2" href="#faq-list"><span>👥</span><h3>Join</h3><p>Link</p></a>
+          <a class="faq-card reveal" data-reveal style="--d: 3" href="#faq-list"><span>💬</span><h3>Chat</h3><p>Discord</p></a>
+          <a class="faq-card reveal" data-reveal style="--d: 4" href="#faq-privacy"><span>🔒</span><h3>Privacy</h3><p>Data</p></a>
+          <a class="faq-card reveal" data-reveal style="--d: 5" href="#faq-list"><span>🌐</span><h3>Platforms</h3><p>Supported</p></a>
         </div>
       </section>
 
       <section class="faq-list light" id="faq-list">
-        <h2>Guide rapide</h2>
-        <div class="accordion">
+        <h2 class="reveal" data-reveal>Quick guide</h2>
+        <div class="accordion reveal" data-reveal>
           <details open>
-            <summary>Sur quels navigateurs CineCoop fonctionne-t-il ?</summary>
-            <p>Google Chrome (et navigateurs basés sur Chromium). Une version Edge peut suivre.</p>
+            <summary>Which browsers does CineCoop support?</summary>
+            <p>Google Chrome and Chromium-based browsers.</p>
           </details>
           <details>
-            <summary>Combien de personnes peuvent rejoindre ?</summary>
-            <p>Jusqu'à 4 personnes par watch party (1 hôte + 3 invités).</p>
+            <summary>How many people can join?</summary>
+            <p>Up to 4 people (1 host + 3 guests).</p>
           </details>
           <details>
-            <summary>Faut-il un compte Discord ?</summary>
-            <p>
-              Non pour regarder ensemble. Discord est optionnel pour le chat, les GIF, les réactions,
-              le micro et la caméra.
-            </p>
+            <summary>Do I need a Discord account?</summary>
+            <p>Not to watch. Optional for chat, GIFs, voice, and video.</p>
           </details>
           <details>
-            <summary>Comment inviter des amis ?</summary>
-            <p>
-              L'hôte copie le lien d'invitation depuis le panneau CineCoop. Les invités ouvrent le
-              lien sur la même plateforme / la même vidéo.
-            </p>
-          </details>
-          <details>
-            <summary>Chaque participant doit-il avoir un abonnement streaming ?</summary>
-            <p>
-              Oui, en général chacun doit être connecté à son propre compte sur le service (Netflix,
-              etc.), comme pour une soirée normale.
-            </p>
+            <summary>How do I invite friends?</summary>
+            <p>Copy the invite link from the CineCoop panel.</p>
           </details>
           <details id="faq-privacy">
-            <summary>CineCoop est-il sûr ?</summary>
+            <summary>Is CineCoop safe?</summary>
             <p>
-              La sync vidéo passe en peer-to-peer entre navigateurs. Le login Discord utilise notre
-              serveur sécurisé (OAuth). Consultez la
-              <a href="privacy.html">politique de confidentialité</a>.
+              Peer-to-peer sync. Secure Discord OAuth.
+              <a href="privacy.html">Privacy policy</a>.
             </p>
           </details>
         </div>
       </section>
 
-      <section class="cta-final" id="install">
-        <h2>Prêt pour votre prochaine soirée série ?</h2>
-        <p>Installez CineCoop et envoyez un lien à vos amis en quelques secondes.</p>
-        <a class="btn btn-primary btn-lg" href="#" id="store-link">Installer sur Chrome</a>
-        <p class="fine" id="store-note">Remplacez le lien par votre URL Chrome Web Store une fois publié.</p>
+      <section class="cta-final reveal" data-reveal id="install">
+        <h2>Ready for your next binge night?</h2>
+        <p>Install CineCoop and send a link in seconds.</p>
+        <a class="btn btn-primary btn-lg btn-glow" href="#" id="store-link">Install on Chrome</a>
+        <p class="fine" id="store-note">Add your Chrome Web Store link in script.js</p>
       </section>
     </main>
 
@@ -258,20 +271,20 @@
           </a>
         </div>
         <div>
-          <h4>Ressources</h4>
+          <h4>Resources</h4>
           <a href="#faq">Support</a>
           <a href="#how">Guide</a>
         </div>
         <div>
-          <h4>Légal</h4>
-          <a href="privacy.html">Confidentialité</a>
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy</a>
         </div>
         <div>
           <h4>Contact</h4>
           <a href="mailto:support@cinecoop.app">support@cinecoop.app</a>
         </div>
       </div>
-      <p class="copyright">© <span id="year"></span> CineCoop. Non affilié aux plateformes de streaming.</p>
+      <p class="copyright">© <span id="year"></span> CineCoop. Not affiliated with streaming platforms.</p>
     </footer>
 
     <script src="script.js"></script>

@@ -1,60 +1,102 @@
-const CHROME_STORE_URL = "#"; // Collez votre lien Chrome Web Store ici
+const CHROME_STORE_URL = "#";
 
 const STEPS = [
   {
-    tag: "Étape 01",
-    title: "Installer CineCoop",
-    heading: "1. Installer CineCoop",
-    body: "Cliquez sur Installer CineCoop pour ouvrir le Chrome Web Store, puis Ajouter à Chrome. Épinglez l'extension dans la barre d'outils.",
+    tag: "Step 01",
+    title: "Install CineCoop",
+    heading: "1. Install CineCoop",
+    body: "Click Install CineCoop to open the Chrome Web Store, then Add to Chrome. Pin the extension.",
   },
   {
-    tag: "Étape 02",
-    title: "Ouvrir une vidéo",
-    heading: "2. Ouvrir une vidéo",
-    body: "Allez sur Netflix, YouTube, Disney+ ou une autre plateforme compatible. Lancez le film ou l'épisode que vous voulez regarder ensemble.",
+    tag: "Step 02",
+    title: "Open a video",
+    heading: "2. Open a video",
+    body: "Go to Netflix, YouTube, Disney+, or another platform. Start the movie or episode.",
   },
   {
-    tag: "Étape 03",
-    title: "Créer une session",
-    heading: "3. Créer une session",
-    body: "Ouvrez CineCoop, choisissez le service, puis démarrez une session. Vous devenez l'hôte de la watch party.",
+    tag: "Step 03",
+    title: "Create a session",
+    heading: "3. Create a session",
+    body: "Open CineCoop, pick the service, and start a session. You are the host.",
   },
   {
-    tag: "Étape 04",
-    title: "Inviter des amis",
-    heading: "4. Inviter des amis",
-    body: "Copiez le lien d'invitation et envoyez-le à vos amis. Ils rejoignent sans compte Discord — uniquement pour le chat si besoin.",
+    tag: "Step 04",
+    title: "Invite friends",
+    heading: "4. Invite friends",
+    body: "Copy the invite link. Friends can join without a Discord account.",
   },
   {
-    tag: "Étape 05",
-    title: "Profiter ensemble",
-    heading: "5. Profiter ensemble",
-    body: "Play, pause et avance sont synchronisés pour tout le monde. Chat, GIF et vocal disponibles avec Discord.",
+    tag: "Step 05",
+    title: "Enjoy together",
+    heading: "5. Enjoy together",
+    body: "Synced play, pause, and seek. Chat, GIFs, and voice with Discord.",
   },
 ];
 
 function setInstallLinks(url) {
-  const links = document.querySelectorAll(
-    "#store-link, #hero-install, #nav-install, .how-left .btn-primary"
-  );
-  links.forEach((el) => {
+  document.querySelectorAll("#store-link, #hero-install, #nav-install, .steps-band .btn-primary, .how-left .btn-primary").forEach((el) => {
     if (el) el.href = url;
   });
+}
+
+function initReveal() {
+  const els = document.querySelectorAll("[data-reveal]");
+  if (!els.length) return;
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  els.forEach((el) => io.observe(el));
+}
+
+function initHeader() {
+  const header = document.getElementById("header");
+  if (!header) return;
+
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
 function initSteps() {
   const screen = document.getElementById("step-screen");
   const detail = document.getElementById("step-detail");
   const buttons = document.querySelectorAll(".step-btn");
+  if (!screen || !detail) return;
 
   function showStep(i) {
     const s = STEPS[i];
     if (!s) return;
-    screen.querySelector(".step-tag").textContent = s.tag;
-    screen.querySelector("h3").textContent = s.title;
-    detail.querySelector("h4").textContent = s.heading;
-    detail.querySelector("p").textContent = s.body;
-    buttons.forEach((b, j) => b.classList.toggle("active", j === i));
+
+    screen.classList.add("is-changing");
+    detail.classList.add("is-changing");
+
+    setTimeout(() => {
+      screen.querySelector(".step-tag").textContent = s.tag;
+      screen.querySelector("h3").textContent = s.title;
+      detail.querySelector("h4").textContent = s.heading;
+      detail.querySelector("p").textContent = s.body;
+      buttons.forEach((b, j) => b.classList.toggle("active", j === i));
+      screen.classList.remove("is-changing");
+      detail.classList.remove("is-changing");
+    }, 180);
   }
 
   buttons.forEach((btn) => {
@@ -62,17 +104,49 @@ function initSteps() {
   });
 }
 
+function initShowsVideo() {
+  const video = document.querySelector(".shows-video");
+  if (!video) return;
+
+  const play = () => {
+    video.muted = true;
+    const p = video.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  };
+
+  play();
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) play();
+        else video.pause();
+      });
+    },
+    { threshold: 0.25 }
+  );
+  io.observe(video);
+}
+
 function initNav() {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
   if (!toggle || !nav) return;
+
   toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  nav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => nav.classList.remove("open"));
   });
 }
 
 document.getElementById("year").textContent = String(new Date().getFullYear());
 setInstallLinks(CHROME_STORE_URL);
+initReveal();
+initHeader();
 initSteps();
+initShowsVideo();
 initNav();
