@@ -35,13 +35,6 @@ html {
   text-size-adjust: 100%;
 }
 
-/* Desktop — même rendu qu’un zoom navigateur à 125 % (taille perçue “normale”) */
-@media (min-width: 1024px) {
-  html {
-    zoom: 1.25;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
