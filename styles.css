@@ -40,6 +40,14 @@ html {
   html {
     zoom: 1.25;
   }
+
+  /* Compense le zoom pour garder le hero dans le viewport */
+  .hero {
+    height: calc(100svh / 1.25);
+    height: calc(100dvh / 1.25);
+    max-height: calc(100svh / 1.25);
+    max-height: calc(100dvh / 1.25);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
