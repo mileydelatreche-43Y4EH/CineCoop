@@ -2987,8 +2987,14 @@ body.page-support {
 
 .page-support .site-header {
   position: fixed;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+}
+
+.page-support .site-header.is-scrolled {
   background: var(--surface-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 .page-support .nav a[aria-current="page"] {
