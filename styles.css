@@ -48,6 +48,27 @@ html {
     max-height: calc(100svh / 1.25);
     max-height: calc(100dvh / 1.25);
   }
+
+  /* Evite le grand vide noir et garde les logos visibles sur le premier fold */
+  .hero-shell {
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: calc(100svh / 1.25);
+    min-height: calc(100dvh / 1.25);
+    padding-top: calc((var(--header-h) + 8px) / 1.25);
+    padding-bottom: 6px;
+  }
+
+  .hero-main {
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero-platforms {
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1238,7 +1238,7 @@ const PLATFORMS = [
 
 function initPlatformsGrid() {
   const platStat = document.getElementById("stat-platforms-count");
-  if (platStat) platStat.textContent = `${PLATFORMS.length}+`;
+  if (platStat) platStat.textContent = "50+";
 
   const grid = document.getElementById("platforms-grid");
   if (!grid) return;
