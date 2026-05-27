@@ -2984,18 +2984,6 @@ body.page-support {
   color: var(--white);
 }
 
-.page-support .site-header {
-  position: fixed;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  box-shadow: none;
-}
-
-.page-support .site-header.is-scrolled {
-  background: var(--surface-dark);
-  border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
 .page-support .nav a[aria-current="page"] {
   color: var(--brand-light);
 }
@@ -3005,17 +2993,18 @@ body.page-support {
 }
 
 .support-page {
-  padding-top: var(--header-h);
+  padding-top: 0;
 }
 
 .support-hero {
   position: relative;
-  padding: clamp(56px, 10vw, 96px) clamp(20px, 5vw, 48px) clamp(48px, 7vw, 72px);
+  padding: calc(var(--header-h) + clamp(40px, 8vw, 72px)) clamp(20px, 5vw, 48px)
+    clamp(48px, 7vw, 72px);
   overflow: hidden;
   text-align: center;
   background: linear-gradient(
     180deg,
-    #090b10 0%,
+    var(--surface-dark) 0%,
     #10131c 22%,
     var(--surface-dark) 52%,
     #161a26 78%,
