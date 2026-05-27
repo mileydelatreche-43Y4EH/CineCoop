@@ -77,24 +77,25 @@ html {
   }
 
   .hero-demo-player {
-    position: relative;
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--hero-chat-w);
+    align-items: stretch;
   }
 
   .hero-demo-media {
-    width: calc(100% - var(--hero-chat-w));
+    width: 100%;
   }
 
   .hero-demo-chat.cc-demo-chat {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: var(--hero-chat-w);
-    min-width: var(--hero-chat-w);
-    max-width: var(--hero-chat-w);
-    height: auto;
-    max-height: none;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    height: 100%;
+    max-height: 100%;
   }
 }
 
