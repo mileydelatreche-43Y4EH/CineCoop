@@ -35,6 +35,13 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Desktop: même rendu que 125 % de zoom navigateur */
+@media (min-width: 1024px) {
+  html {
+    zoom: 1.33;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -2833,24 +2840,24 @@ body.nav-menu-open {
 
 @media (min-width: 1280px) {
   :root {
-    --max: 1280px;
+    --max: 1320px;
   }
 
   .hero-shell {
-    max-width: min(1760px, 94vw);
+    max-width: min(1820px, 96vw);
     padding-left: clamp(32px, 4vw, 72px);
     padding-right: clamp(32px, 4vw, 72px);
   }
 
   .hero-main {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    gap: clamp(28px, 3.2vw, 52px);
-    --hero-align-top: clamp(64px, 10vh, 96px);
+    grid-template-columns: minmax(0, 1.42fr) minmax(0, 1fr);
+    gap: clamp(30px, 3.4vw, 58px);
+    --hero-align-top: clamp(58px, 9vh, 88px);
   }
 
   .hero-copy {
-    max-width: 40rem;
-    padding-left: clamp(20px, 3vw, 48px);
+    max-width: 42rem;
+    padding-left: clamp(18px, 2.6vw, 42px);
   }
 
   .hero-copy .eyebrow {
@@ -2858,28 +2865,28 @@ body.nav-menu-open {
   }
 
   .hero-copy h1 {
-    font-size: clamp(2rem, 2.55vw, 2.8rem);
+    font-size: clamp(2.1rem, 2.8vw, 3.05rem);
     margin-bottom: 22px;
   }
 
   .hero-copy .lead {
-    font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+    font-size: clamp(1.1rem, 1.52vw, 1.24rem);
   }
 
   .hero-copy .btn-lg {
-    font-size: 1.1rem;
-    padding: 15px 34px;
+    font-size: 1.14rem;
+    padding: 16px 36px;
   }
 
   .hero-demo-media {
-    max-height: min(70vh, 620px);
+    max-height: min(72vh, 660px);
   }
 
   .hero-demo-chat.cc-demo-chat {
-    flex: 0 0 clamp(180px, 27%, 228px);
-    width: clamp(180px, 27%, 228px);
-    min-width: 168px;
-    max-width: 228px;
+    flex: 0 0 clamp(190px, 27.5%, 238px);
+    width: clamp(190px, 27.5%, 238px);
+    min-width: 176px;
+    max-width: 238px;
   }
 
   .platforms-showcase {
