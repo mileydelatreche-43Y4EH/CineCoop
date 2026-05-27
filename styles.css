@@ -56,7 +56,7 @@ html {
     min-height: calc(100svh / 1.25);
     min-height: calc(100dvh / 1.25);
     padding-top: calc((var(--header-h) + 8px) / 1.25);
-    padding-bottom: 6px;
+    padding-bottom: 0;
   }
 
   .hero-main {
@@ -65,9 +65,9 @@ html {
   }
 
   .hero-platforms {
-    margin-top: 0;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    margin-top: -56px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
