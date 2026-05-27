@@ -43,10 +43,10 @@ html {
 
   /* Compense le zoom pour garder le hero dans le viewport */
   .hero {
-    height: calc(100svh / 1.25);
-    height: calc(100dvh / 1.25);
-    max-height: calc(100svh / 1.25);
-    max-height: calc(100dvh / 1.25);
+    height: calc((100svh - 8px) / 1.25);
+    height: calc((100dvh - 8px) / 1.25);
+    max-height: calc((100svh - 8px) / 1.25);
+    max-height: calc((100dvh - 8px) / 1.25);
   }
 
   /* Evite le grand vide noir et garde les logos visibles sur le premier fold */
@@ -66,9 +66,9 @@ html {
   }
 
   .hero-platforms {
-    margin-top: -72px;
+    margin-top: -132px;
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 4px;
   }
 }
 
