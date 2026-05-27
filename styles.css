@@ -548,7 +548,7 @@ body.nav-menu-open {
 .hero-demo-player {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch;
   width: 100%;
   line-height: 0;
   background: #0a0a0a;
@@ -558,14 +558,13 @@ body.nav-menu-open {
 .hero-demo-media {
   flex: 1 1 auto;
   min-width: 0;
-  align-self: flex-start;
   display: block;
   padding: 0;
   line-height: 0;
   overflow: hidden;
   background: #0a0a0a;
-  aspect-ratio: 16 / 9;
-  max-height: min(68vh, 580px);
+  height: var(--hero-demo-video-h, 360px);
+  max-height: var(--hero-demo-video-h, 360px);
 }
 
 .hero-demo-video {
