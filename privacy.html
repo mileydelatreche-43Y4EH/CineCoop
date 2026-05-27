@@ -6,60 +6,245 @@
     <title>Privacy — CineCoop</title>
     <link rel="icon" href="assets/favicon.ico?v=4" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4" />
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      .legal {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 48px 5vw 80px;
-      }
-      .legal h1 {
-        margin-top: 0;
-      }
-      .legal p,
-      .legal li {
-        color: #5c6370;
-        line-height: 1.6;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=responsive" />
   </head>
-  <body>
-    <header class="site-header">
+  <body class="page-legal">
+    <header class="site-header site-header--static" id="header">
       <a class="brand" href="index.html">
-        <img src="assets/brand-cp-48.png" alt="" class="brand-icon" width="44" height="44" />
-        <span>CineCoop</span>
+        <img src="assets/brand-cp-48.png" alt="" class="brand-icon" width="40" height="40" />
+        <span class="brand-name">CineCoop</span>
       </a>
+      <div class="header-actions">
+        <nav class="nav" aria-label="Legal page navigation">
+          <a href="index.html">Home</a>
+          <a href="support.html">Support</a>
+          <a href="index.html#install">Install</a>
+        </nav>
+        <a class="btn btn-primary btn-sm header-cta" href="index.html#install">Install CineCoop</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </header>
-    <article class="legal">
-      <h1>Privacy policy</h1>
-      <p><em>Last updated: May 2026</em></p>
-      <p>
-        CineCoop is a Chrome extension that enables synchronized watch parties on streaming
-        platforms.
-      </p>
-      <h2>Data we collect</h2>
-      <ul>
-        <li>
-          <strong>Discord profile (optional)</strong>: user ID, username, and avatar, only if you
-          sign in for chat.
-        </li>
-        <li>
-          <strong>Local data</strong>: session preferences and chat language, stored in your
-          browser.
-        </li>
-      </ul>
-      <h2>Video sync</h2>
-      <p>
-        Synchronized playback uses a peer-to-peer connection (PeerJS) between participants. CineCoop
-        does not record the video stream from the platform.
-      </p>
-      <h2>Authentication server</h2>
-      <p>
-        Discord sign-in goes through our secure server (HTTPS) for OAuth. We do not sell your data.
-      </p>
-      <h2>Contact</h2>
-      <p><a href="mailto:cinecoopsupp@proton.me">cinecoopsupp@proton.me</a></p>
-      <p><a href="index.html">← Back to site</a></p>
-    </article>
+
+    <main class="legal-page">
+      <article class="legal">
+        <h1>Privacy policy</h1>
+        <p class="legal-updated"><em>Last updated: May 2026</em></p>
+
+        <h2>Introduction</h2>
+        <p>
+          CineCoop (“we”, “our”) is a browser extension that lets you watch movies and shows
+          together on supported streaming websites with synchronized playback, invite links, and an
+          optional group chat. This policy explains what information is processed when you use
+          CineCoop, how we use it, and what choices you have.
+        </p>
+        <p>
+          By installing or using CineCoop, you agree to this privacy policy. If you do not agree,
+          please do not use the extension.
+        </p>
+
+        <h2>Who this policy applies to</h2>
+        <p>
+          This policy applies to users of the CineCoop Chrome extension, this website, and related
+          services (including our authentication backend). It does not replace the privacy policies
+          of streaming platforms (Netflix, YouTube, Disney+, etc.) or Discord.
+        </p>
+
+        <h2>Data we collect and process</h2>
+        <p>Depending on how you use CineCoop, we may process the following:</p>
+        <ul>
+          <li>
+            <strong>Watch party &amp; sync data</strong>: play/pause state, playback position
+            (seek), session or room identifiers, invite codes, and host settings (for example
+            “only host controls playback”). This is exchanged between participants to keep everyone
+            in sync.
+          </li>
+          <li>
+            <strong>Chat messages</strong>: text you send in the in-session chat, reactions, and
+            optional GIFs you choose from search results.
+          </li>
+          <li>
+            <strong>Discord profile (optional)</strong>: if you sign in for chat — Discord user ID,
+            username, display name, and avatar URL. Sign-in is not required to join a party via
+            invite link; it is required to read and send chat messages.
+          </li>
+          <li>
+            <strong>Optional voice &amp; video</strong>: if you turn on the microphone or camera in a
+            session, audio/video may be shared with other participants in that session. We do not
+            store recordings of these streams on our servers.
+          </li>
+          <li>
+            <strong>Local preferences</strong>: settings such as chat language, sidebar visibility,
+            and session state, stored in your browser (<code>chrome.storage</code>,
+            <code>sessionStorage</code>, or similar).
+          </li>
+          <li>
+            <strong>Technical data</strong>: minimal information needed for the extension to work
+            (for example HTTPS requests to our backend for OAuth, or GIF search queries sent to
+            Tenor). We do not build advertising profiles from this data.
+          </li>
+        </ul>
+
+        <h2>What we do not collect</h2>
+        <p>CineCoop is designed to avoid collecting data that is not needed for watch parties. We do not intentionally collect:</p>
+        <ul>
+          <li>Payment or billing information</li>
+          <li>Health information</li>
+          <li>Precise GPS or location data</li>
+          <li>Your general browsing history outside the streaming tab where you use CineCoop</li>
+          <li>The actual video file or stream from Netflix, YouTube, or other platforms</li>
+        </ul>
+
+        <h2>How we use your information</h2>
+        <p>We use the information above only to:</p>
+        <ul>
+          <li>Create, join, and manage watch parties</li>
+          <li>Keep playback synchronized between participants</li>
+          <li>Display chat, GIF search, and optional voice/video in a session</li>
+          <li>Authenticate optional Discord sign-in</li>
+          <li>Remember your preferences locally</li>
+          <li>Operate, maintain, and improve the extension</li>
+        </ul>
+        <p>
+          We do <strong>not</strong> use your data for advertising, cross-site tracking, or selling
+          personal information.
+        </p>
+
+        <h2>Video synchronization</h2>
+        <p>
+          Synchronized playback uses peer-to-peer connections (PeerJS) between participants in the
+          same session. Sync signals (play, pause, seek) are shared between browsers; CineCoop does
+          not record, host, or redistribute the video content from streaming services.
+        </p>
+        <p>
+          CineCoop is not affiliated with Netflix, YouTube, Disney+, Hulu, HBO Max, Prime Video, or
+          other streaming platforms.
+        </p>
+
+        <h2>Discord sign-in &amp; our server</h2>
+        <p>
+          If you choose Discord login, authentication is handled through our secure HTTPS backend
+          (OAuth). We receive only the profile fields needed to show your name and avatar in chat.
+          We do not post to Discord on your behalf without your action in the extension.
+        </p>
+
+        <h2>Third-party services</h2>
+        <p>CineCoop relies on services that have their own privacy policies:</p>
+        <ul>
+          <li>
+            <strong>Discord</strong> — optional account sign-in for chat
+            (<a href="https://discord.com/privacy" rel="noopener noreferrer" target="_blank">Discord Privacy Policy</a>)
+          </li>
+          <li>
+            <strong>PeerJS / WebRTC</strong> — peer-to-peer sync and optional real-time media between
+            session members
+          </li>
+          <li>
+            <strong>Tenor (Google)</strong> — GIF search in chat; search terms and media requests may
+            be sent to Tenor’s API
+            (<a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>)
+          </li>
+          <li>
+            <strong>Our hosting provider</strong> — authentication and session backend on Railway,
+            over HTTPS
+          </li>
+          <li>
+            <strong>Streaming websites</strong> — the extension runs only on supported watch URLs;
+            those sites process your account and viewing activity under their own terms
+          </li>
+        </ul>
+
+        <h2>Browser permissions</h2>
+        <p>The extension may request permissions such as:</p>
+        <ul>
+          <li><strong>storage</strong> — save preferences and session data locally</li>
+          <li><strong>activeTab / tabs / scripting</strong> — inject sync and chat UI on supported streaming pages; open the Discord sign-in page in a new tab when you choose to connect</li>
+          <li><strong>offscreen</strong> — support media features where required by the browser</li>
+        </ul>
+        <p>Permissions are used only for features described in this policy and in the Chrome Web Store listing.</p>
+
+        <h2>Data storage &amp; retention</h2>
+        <ul>
+          <li>
+            <strong>On your device</strong>: session and preference data remain in your browser until
+            you clear extension data, end a session, or uninstall CineCoop.
+          </li>
+          <li>
+            <strong>On our servers</strong>: we keep only what is necessary to operate authentication
+            and watch parties. We do not retain chat message history on our servers for long-term
+            archiving; chat is primarily exchanged in real time during active sessions.
+          </li>
+          <li>
+            <strong>Logs</strong>: server logs, if any, are kept for a limited time for security and
+            troubleshooting, then deleted or aggregated.
+          </li>
+        </ul>
+
+        <h2>Sharing &amp; sale of data</h2>
+        <p>
+          We do <strong>not</strong> sell your personal information. We share data only with the
+          third parties listed above, strictly to provide the service, or when required by law.
+        </p>
+
+        <h2>Security</h2>
+        <p>
+          We use HTTPS for server communication and aim to limit processing to what is necessary.
+          No method of transmission over the Internet is 100% secure. Do not share passwords,
+          financial details, or other sensitive personal information in party chat.
+        </p>
+
+        <h2>Your rights &amp; choices</h2>
+        <p>Depending on where you live, you may have rights to:</p>
+        <ul>
+          <li>Access or receive a copy of personal data we hold about you</li>
+          <li>Request correction or deletion of your data</li>
+          <li>Object to or restrict certain processing</li>
+          <li>Withdraw Discord authorization (via Discord account settings or by logging out in CineCoop)</li>
+          <li>Stop using the extension and clear browser/extension storage at any time</li>
+        </ul>
+        <p>
+          To exercise these rights, contact us at
+          <a href="mailto:cinecoopsupp@proton.me">cinecoopsupp@proton.me</a>. We will respond within
+          a reasonable time.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          CineCoop is not directed at children under 13 (or the minimum age required in your
+          country). We do not knowingly collect personal information from children. If you believe
+          a child has provided us data, contact us and we will delete it.
+        </p>
+
+        <h2>International users</h2>
+        <p>
+          Our services may be operated from the European Union or other locations. If you use
+          CineCoop from outside your home country, your information may be processed in jurisdictions
+          with different data protection laws.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+          We may update this policy from time to time. The “Last updated” date at the top will
+          change when we do. Continued use of CineCoop after an update means you accept the revised
+          policy. For material changes, we may also update the Chrome Web Store listing or this page.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about privacy or data requests:
+          <a href="mailto:cinecoopsupp@proton.me">cinecoopsupp@proton.me</a>
+        </p>
+        <p><a class="legal-back" href="index.html">← Back to site</a></p>
+      </article>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>

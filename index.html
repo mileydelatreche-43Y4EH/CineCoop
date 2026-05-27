@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineCoop — Synchronized watch party</title>
+    <title>CineCoop | Watch together on Netflix, YouTube, HBO Max, and more</title>
     <meta
       name="description"
-      content="Watch movies and shows together. Synced playback, invite links, Discord chat. Up to 4 friends."
+      content="Watch movies and shows together. Synced playback, invite links, Discord chat. Up to 4 people."
     />
     <link rel="icon" href="assets/favicon.ico?v=4" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4" />
@@ -18,76 +18,171 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=responsive2" />
   </head>
   <body>
     <div class="page-bg" aria-hidden="true"></div>
 
     <header class="site-header" id="header">
       <a class="brand" href="#">
-        <img src="assets/brand-cp-48.png" alt="" class="brand-icon" width="44" height="44" />
+        <img src="assets/brand-cp-48.png" alt="" class="brand-icon" width="40" height="40" />
         <span class="brand-name">CineCoop</span>
       </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">Support</a>
-      </nav>
-      <a class="btn btn-primary btn-sm" href="#install" id="nav-install">Install CineCoop</a>
+      <div class="header-actions">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#platforms">Platforms</a>
+          <a href="#how">How It Works</a>
+          <a href="support.html">Support</a>
+        </nav>
+        <a class="btn btn-primary btn-sm header-cta" href="#install" id="nav-install">Install CineCoop</a>
+      </div>
       <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-visual reveal" data-reveal>
-          <div class="promo-frame float-y">
-            <img
-              src="assets/promo/hero-watch-together.png"
-              alt="CineCoop — watch in sync with friends on desktop and mobile"
-              class="promo-img"
-              width="720"
-              height="480"
-              loading="eager"
-            />
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-shell">
+          <div class="hero-main">
+            <div class="hero-visual reveal" data-reveal>
+              <div class="promo-frame hero-demo" aria-label="CineCoop watch party demo">
+                <div class="hero-demo-stage">
+                  <div class="hero-demo-player">
+                    <div class="hero-demo-media">
+                      <video
+                        class="hero-demo-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        width="1920"
+                        height="1080"
+                        aria-hidden="true"
+                      >
+                        <source src="assets/landing_teleparty_hq.mp4?v=14" type="video/mp4" />
+                        <source src="assets/landing_teleparty.mp4?v=14" type="video/mp4" />
+                      </video>
+                    </div>
+                    <aside class="hero-demo-chat cc-demo-chat" aria-label="CineCoop group chat — try it">
+                    <header class="chat-header-bar hero-demo-chat-head">
+                      <span class="hero-demo-chat-brand">CineCoop</span>
+                    </header>
+                    <div class="chat-members-top">
+                      <div class="chat-members-title">Session members</div>
+                      <div id="hero-demo-members" class="chat-members-list"></div>
+                    </div>
+                    <div id="hero-demo-chat-log" class="chat-log"></div>
+                    <div id="hero-demo-reply-preview" class="reply-preview hidden">
+                      <span id="hero-demo-reply-text"></span>
+                      <button type="button" id="hero-demo-reply-cancel" class="reply-cancel" aria-label="Cancel reply">
+                        ✕
+                      </button>
+                    </div>
+                    <div id="hero-demo-gif-picker" class="gif-picker hidden">
+                      <div class="gif-picker-pane">
+                        <div class="gif-search-wrap">
+                          <svg class="gif-search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="6"></circle>
+                            <path d="M20 20l-4.3-4.3"></path>
+                          </svg>
+                          <input
+                            id="hero-demo-gif-search"
+                            type="search"
+                            autocomplete="off"
+                            spellcheck="false"
+                            placeholder="Movies, shows, popcorn…"
+                          />
+                        </div>
+                        <div id="hero-demo-gif-categories" class="gif-categories-grid"></div>
+                        <div id="hero-demo-gif-results" class="gif-results gif-results-pane"></div>
+                        <div id="hero-demo-gif-hint" class="gif-hint"></div>
+                      </div>
+                    </div>
+                    <div class="chat-bottom">
+                      <div class="discord-compose">
+                        <input
+                          id="hero-demo-input"
+                          class="discord-compose-input"
+                          type="text"
+                          placeholder="Write a message…"
+                          maxlength="500"
+                          autocomplete="off"
+                          spellcheck="false"
+                          aria-label="Message"
+                        />
+                        <button type="button" id="hero-demo-gif-toggle" class="discord-gif-chip" title="GIF" aria-label="GIF">
+                          GIF
+                        </button>
+                      </div>
+                    </div>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-copy">
+              <p class="eyebrow reveal" data-reveal>WATCH WITH FRIENDS</p>
+              <h1 class="reveal" data-reveal style="--d: 1">A new way to watch TV together</h1>
+              <p class="lead reveal" data-reveal style="--d: 2">
+                CineCoop is a new way to watch TV with your friends online.
+              </p>
+              <p class="lead reveal" data-reveal style="--d: 3">
+                CineCoop synchronizes video playback and adds group chat to Netflix, Disney+, Hulu,
+                HBO, and Prime Video.
+              </p>
+              <a class="btn btn-primary btn-lg reveal" data-reveal style="--d: 4" href="#install" id="install"
+                >Get CineCoop for free!</a
+              >
+              <p class="fine reveal" data-reveal style="--d: 5">*Available on Chrome and Chromium browsers (Edge, Brave, Opera) on desktop.</p>
+            </div>
           </div>
-        </div>
-        <div class="hero-copy">
-          <p class="eyebrow reveal" data-reveal>WATCH TOGETHER</p>
-          <h1 class="reveal" data-reveal style="--d: 1">Watch TV in sync with friends</h1>
-          <p class="lead reveal" data-reveal style="--d: 2">
-            CineCoop syncs playback and adds group chat. Same scene, same moment — up to
-            <strong>4 people</strong>.
-          </p>
-          <p class="lead-sub reveal" data-reveal style="--d: 3">
-            Available on Netflix, Disney+, Prime Video, Max, YouTube, Hulu, and more.
-          </p>
-          <a class="btn btn-primary btn-lg reveal" data-reveal style="--d: 4" href="#install" id="hero-install"
-            >Get CineCoop for free</a
-          >
-          <p class="fine reveal" data-reveal style="--d: 5">* Google Chrome</p>
-        </div>
-      </section>
 
-      <section class="platforms reveal" data-reveal aria-label="Supported platforms">
-        <p class="platforms-label">Host a watch party on</p>
-        <div class="platforms-marquee">
-          <ul class="platforms-track">
-            <li><img src="assets/logos/brand/netflix.png" alt="Netflix" /></li>
-            <li><img src="assets/logos/brand/disney.png" alt="Disney+" /></li>
-            <li><img src="assets/logos/brand/hulu.png" alt="Hulu" /></li>
-            <li><img src="assets/logos/brand/hbo.png" alt="HBO" /></li>
-            <li><img src="assets/logos/brand/amazon.png" alt="Amazon Prime Video" /></li>
-            <li><img src="assets/logos/brand/youtube.png" alt="YouTube" /></li>
-            <li aria-hidden="true"><img src="assets/logos/brand/netflix.png" alt="" /></li>
-            <li aria-hidden="true"><img src="assets/logos/brand/disney.png" alt="" /></li>
-            <li aria-hidden="true"><img src="assets/logos/brand/hulu.png" alt="" /></li>
-            <li aria-hidden="true"><img src="assets/logos/brand/hbo.png" alt="" /></li>
-            <li aria-hidden="true"><img src="assets/logos/brand/amazon.png" alt="" /></li>
-            <li aria-hidden="true"><img src="assets/logos/brand/youtube.png" alt="" /></li>
-          </ul>
+          <div class="hero-platforms reveal" data-reveal aria-label="Supported platforms">
+            <p class="platforms-label">Host a watch party on</p>
+            <ul class="platforms-showcase" aria-label="Streaming platforms">
+              <li class="logo-netflix"><img src="assets/logos/brand/netflix.png" alt="Netflix" width="180" height="52" /></li>
+              <li class="logo-youtube"><img src="assets/logos/brand/youtube.png" alt="YouTube" width="180" height="52" /></li>
+              <li class="logo-disney"><img src="assets/logos/color/disney.svg?v=3" alt="Disney+" width="140" height="44" /></li>
+              <li class="logo-hbo"><img src="assets/logos/brand/hbo.png" alt="HBO" width="180" height="52" /></li>
+              <li class="logo-hulu"><img src="assets/logos/brand/hulu.png" alt="Hulu" width="180" height="52" /></li>
+              <li class="logo-prime"><img src="assets/logos/brand/amazon.png" alt="Prime Video" width="180" height="52" /></li>
+            </ul>
+            <div class="platforms-marquee">
+              <ul class="platforms-track">
+              <li><img src="assets/logos/color/netflix.svg" alt="Netflix" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/youtube.svg" alt="YouTube" width="140" height="44" /></li>
+              <li class="logo-disney"><img src="assets/logos/color/disney.svg?v=3" alt="Disney+" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/hulu.svg" alt="Hulu" width="140" height="44" /></li>
+              <li><img src="assets/logos/brand/hbo.png" alt="HBO" width="140" height="44" /></li>
+              <li class="logo-prime"><img src="assets/logos/color/prime.svg" alt="Prime Video" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/paramount.svg" alt="Paramount+" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/peacock.svg" alt="Peacock" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/appletv.svg" alt="Apple TV+" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/crunchyroll.svg" alt="Crunchyroll" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/espnplus.svg" alt="ESPN+" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/tubi.svg" alt="Tubi" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/pluto.svg" alt="Pluto TV" width="140" height="44" /></li>
+              <li><img src="assets/logos/color/crave.svg" alt="Crave" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/netflix.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/youtube.svg" alt="" width="140" height="44" /></li>
+              <li class="logo-disney" aria-hidden="true"><img src="assets/logos/color/disney.svg?v=3" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/hulu.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/hbo.svg" alt="" width="140" height="44" /></li>
+              <li class="logo-prime" aria-hidden="true"><img src="assets/logos/color/prime.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/paramount.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/peacock.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/appletv.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/crunchyroll.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/espnplus.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/tubi.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/pluto.svg" alt="" width="140" height="44" /></li>
+              <li aria-hidden="true"><img src="assets/logos/color/crave.svg" alt="" width="140" height="44" /></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -97,8 +192,8 @@
             <p class="eyebrow dark">MILLIONS OF SHOWS &amp; MOVIES</p>
             <h2>Watch right on your favorite streaming sites</h2>
             <p>
-              Create a watch party in seconds on Netflix, YouTube, Hulu, Disney+, Max, or Prime
-              Video — and stream thousands of great shows together with friends.
+              Create watch parties in seconds on Netflix, YouTube, Hulu, Disney+, HBO Max, and Prime
+              Video to stream millions of great shows together with friends.
             </p>
           </div>
           <div class="feature-visual reveal" data-reveal>
@@ -118,69 +213,40 @@
         </div>
       </section>
 
-      <section class="steps-band">
-        <div class="steps-band-inner reveal" data-reveal>
-          <div class="steps-band-copy">
-            <p class="eyebrow light">3 STEPS</p>
-            <h2>Get the party started in a few clicks</h2>
-            <ul class="steps-mini">
-              <li class="reveal" data-reveal style="--d: 0">
-                <span class="step-num">1</span>
-                <div>
-                  <strong>Install CineCoop</strong>
-                  <p>Chrome Web Store → Add to Chrome</p>
-                </div>
-              </li>
-              <li class="reveal" data-reveal style="--d: 1">
-                <span class="step-num">2</span>
-                <div>
-                  <strong>Open a video</strong>
-                  <p>Netflix, Disney+, YouTube, Prime… then launch CineCoop</p>
-                </div>
-              </li>
-              <li class="reveal" data-reveal style="--d: 2">
-                <span class="step-num">3</span>
-                <div>
-                  <strong>Share the link</strong>
-                  <p>Invite your friends to the watch party</p>
-                </div>
-              </li>
-            </ul>
-            <a class="btn btn-primary" href="#install">Get started</a>
-          </div>
-          <div class="steps-band-visual float-y-slow">
-            <img
-              src="assets/promo/steps-three.png"
-              alt="Three steps to start a CineCoop watch party"
-              class="steps-promo-img"
-              loading="lazy"
-            />
-          </div>
+      <section class="platforms-all" id="platforms" aria-labelledby="platforms-title">
+        <div class="platforms-all-inner reveal" data-reveal>
+          <p class="eyebrow light">COMPATIBILITY</p>
+          <h2 id="platforms-title">Available on your favorite streaming sites</h2>
+          <p class="platforms-all-lead">
+            To use CineCoop, open a video on one of the services below and start a watch party in
+            seconds.
+          </p>
+          <ul class="platforms-grid" id="platforms-grid" aria-label="Supported streaming platforms"></ul>
         </div>
       </section>
 
-      <section class="feature-block gray">
+      <section class="feature-block gray" id="sync">
         <div class="feature-inner">
           <div class="feature-copy reveal" data-reveal>
-            <p class="eyebrow dark">SYNC</p>
-            <h2>Perfect sync + built-in chat</h2>
+            <p class="eyebrow dark">SYNCHRONIZE WITH YOUR FRIENDS</p>
+            <h2>Sync watch parties in HD</h2>
             <p>
-              When the host pauses or skips, everyone follows. Chat, reactions, GIFs — and with
-              Discord: voice and video.
+              Always stay precisely in sync when you watch shows together. Enjoy smooth HD playback
+              and fast buffering in your CineCoop sessions on desktop.
             </p>
           </div>
-          <div class="stats-grid reveal" data-reveal>
-            <div class="stat-card">
-              <span class="stat-value">4</span>
-              <span class="stat-label">max players</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">HD</span>
-              <span class="stat-label">smooth sync</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">∞</span>
-              <span class="stat-label">platforms</span>
+          <div class="feature-visual reveal" data-reveal>
+            <div class="shows-video-frame sync-playback-frame">
+              <video
+                class="shows-video"
+                src="assets/landingpage_synchronization.mp4?v=19"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-label="CineCoop synchronized playback on desktop"
+              ></video>
             </div>
           </div>
         </div>
@@ -201,30 +267,165 @@
           </div>
           <div class="how-right reveal" data-reveal>
             <div class="step-screen" id="step-screen">
-              <span class="step-tag">Step 01</span>
-              <h3 id="step-title">Install CineCoop</h3>
+              <div class="how-pov" id="how-pov" data-step="0" aria-label="CineCoop tutorial preview">
+                <div class="how-pov-chrome">
+                  <div class="how-pov-tabs">
+                    <span class="how-pov-tab is-active"></span>
+                    <span class="how-pov-tab"></span>
+                    <span class="how-pov-tab"></span>
+                  </div>
+                  <div class="how-pov-toolbar">
+                    <div class="how-pov-nav" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="how-pov-omnibox">
+                      <span class="how-pov-url" id="how-pov-url">chromewebstore.google.com/detail/cinecoop</span>
+                    </div>
+                    <div class="how-pov-ext-bar" aria-hidden="true">
+                      <img
+                        class="how-pov-ext-icon"
+                        src="assets/how/brand-cp-96.png?v=1"
+                        alt=""
+                        width="20"
+                        height="20"
+                      />
+                    </div>
+                  </div>
+                  <div class="how-pov-viewport">
+                    <div
+                      class="how-pov-scene is-active"
+                      data-scene="0"
+                      data-click-x="50"
+                      data-click-y="72"
+                      data-from-x="72"
+                      data-from-y="12"
+                    >
+                      <img
+                        class="how-pov-shot"
+                        src="assets/how/step-0-store.png?v=6"
+                        alt=""
+                        width="1920"
+                        height="1200"
+                        decoding="async"
+                      />
+                    </div>
+                    <div
+                      class="how-pov-scene"
+                      data-scene="1"
+                      data-click-x="50"
+                      data-click-y="47.8"
+                      data-from-x="50"
+                      data-from-y="47.8"
+                    >
+                      <img
+                        class="how-pov-shot"
+                        src="assets/how/step-1-netflix-play.png?v=6"
+                        alt=""
+                        width="1920"
+                        height="1200"
+                        decoding="async"
+                      />
+                    </div>
+                    <div
+                      class="how-pov-scene"
+                      data-scene="2"
+                      data-click-x="79.9"
+                      data-click-y="33.8"
+                      data-from-x="92"
+                      data-from-y="11"
+                    >
+                      <img
+                        class="how-pov-shot"
+                        src="assets/how/step-2-popup-start.png?v=8"
+                        alt=""
+                        width="1920"
+                        height="1200"
+                        decoding="async"
+                      />
+                    </div>
+                    <div
+                      class="how-pov-scene"
+                      data-scene="3"
+                      data-click-x="95.2"
+                      data-click-y="47.0"
+                      data-from-x="92"
+                      data-from-y="11"
+                    >
+                      <img
+                        class="how-pov-shot"
+                        src="assets/how/step-3-popup-invite.png?v=14"
+                        alt=""
+                        width="1920"
+                        height="1200"
+                        decoding="async"
+                      />
+                    </div>
+                    <div
+                      class="how-pov-scene how-pov-scene--party"
+                      data-scene="4"
+                      data-click-x="42"
+                      data-click-y="50"
+                      data-from-x="42"
+                      data-from-y="50"
+                    >
+                      <img
+                        class="how-pov-shot how-pov-shot--party"
+                        src="assets/how/step-4-player.png?v=1"
+                        alt=""
+                        width="1920"
+                        height="1200"
+                        decoding="async"
+                      />
+                      <aside
+                        class="how-pov-live-chat cc-demo-chat hero-demo-chat"
+                        aria-label="CineCoop group chat demo"
+                      >
+                        <header class="chat-header-bar hero-demo-chat-head">
+                          <span class="hero-demo-chat-brand">CineCoop</span>
+                          <span class="how-pov-chat-live" aria-hidden="true">Live</span>
+                        </header>
+                        <div class="chat-members-top">
+                          <div class="chat-members-title">Session members</div>
+                          <div id="how-pov-chat-members" class="chat-members-list"></div>
+                        </div>
+                        <div id="how-pov-chat-log" class="chat-log"></div>
+                        <div id="how-pov-chat-typing" class="how-pov-chat-typing hidden" aria-hidden="true">
+                          <span class="how-pov-typing-avatar"></span>
+                          <span class="how-pov-typing-text"><strong></strong> is typing</span>
+                          <span class="how-pov-typing-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        </div>
+                        <div class="chat-bottom">
+                          <div class="discord-compose how-pov-compose">
+                            <input
+                              class="discord-compose-input"
+                              type="text"
+                              placeholder="Write a message…"
+                              disabled
+                              aria-label="Message"
+                            />
+                            <button type="button" class="discord-gif-chip" disabled aria-hidden="true">GIF</button>
+                          </div>
+                        </div>
+                      </aside>
+                    </div>
+                    <div class="how-pov-cursor" aria-hidden="true"></div>
+                    <div class="how-pov-click" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="step-screen-caption">
+                <span class="step-tag">Step 01</span>
+                <h3 id="step-title">Install CineCoop</h3>
+              </div>
             </div>
             <div class="step-detail" id="step-detail">
               <h4>1. Install CineCoop</h4>
               <p>
-                Click <strong>Install CineCoop</strong> to open the Chrome Web Store, then
+                Click <strong>Install CineCoop</strong> to open the Chrome Web Store, then click
                 <strong>Add to Chrome</strong>.
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="faq-hero" id="faq">
-        <h2 class="reveal" data-reveal>Frequently asked questions</h2>
-        <p class="reveal" data-reveal>Everything you need for your first watch party.</p>
-        <div class="faq-grid">
-          <a class="faq-card reveal" data-reveal href="#faq-list"><span>⚙️</span><h3>Install</h3><p>Chrome</p></a>
-          <a class="faq-card reveal" data-reveal style="--d: 1" href="#faq-list"><span>🎬</span><h3>Host</h3><p>Session</p></a>
-          <a class="faq-card reveal" data-reveal style="--d: 2" href="#faq-list"><span>👥</span><h3>Join</h3><p>Link</p></a>
-          <a class="faq-card reveal" data-reveal style="--d: 3" href="#faq-list"><span>💬</span><h3>Chat</h3><p>Discord</p></a>
-          <a class="faq-card reveal" data-reveal style="--d: 4" href="#faq-privacy"><span>🔒</span><h3>Privacy</h3><p>Data</p></a>
-          <a class="faq-card reveal" data-reveal style="--d: 5" href="#faq-list"><span>🌐</span><h3>Platforms</h3><p>Supported</p></a>
         </div>
       </section>
 
@@ -233,7 +434,7 @@
         <div class="accordion reveal" data-reveal>
           <details open>
             <summary>Which browsers does CineCoop support?</summary>
-            <p>Google Chrome and Chromium-based browsers.</p>
+            <p>Google Chrome and Chromium-based browsers (such as Edge, Brave, and Opera) on desktop.</p>
           </details>
           <details>
             <summary>How many people can join?</summary>
@@ -257,12 +458,6 @@
         </div>
       </section>
 
-      <section class="cta-final reveal" data-reveal id="install">
-        <h2>Ready for your next binge night?</h2>
-        <p>Install CineCoop and send a link in seconds.</p>
-        <a class="btn btn-primary btn-lg btn-glow" href="#" id="store-link">Install on Chrome</a>
-        <p class="fine" id="store-note">Add your Chrome Web Store link in script.js</p>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -275,8 +470,8 @@
         </div>
         <div>
           <h4>Resources</h4>
-          <a href="#faq">Support</a>
-          <a href="#how">Guide</a>
+          <a href="support.html">Support</a>
+          <a href="index.html#how">Guide</a>
         </div>
         <div>
           <h4>Legal</h4>
@@ -284,12 +479,12 @@
         </div>
         <div>
           <h4>Contact</h4>
-          <a href="mailto:support@cinecoop.app">support@cinecoop.app</a>
+          <a href="mailto:cinecoopsupp@proton.me">cinecoopsupp@proton.me</a>
         </div>
       </div>
       <p class="copyright">© <span id="year"></span> CineCoop. Not affiliated with streaming platforms.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=howchat"></script>
   </body>
 </html>
