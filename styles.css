@@ -35,6 +35,12 @@ html {
   text-size-adjust: 100%;
 }
 
+@media (min-width: 1024px) {
+  html {
+    zoom: 1.25;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
