@@ -7,7 +7,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
@@ -74,8 +74,14 @@ def build_mockup_base() -> Image.Image:
         base = Image.open(frame_path).convert("RGB")
         if base.size != (W, H):
             base = base.resize((W, H), Image.Resampling.LANCZOS)
+
+        # Supprime totalement le téléphone : on repeint la zone de gauche en blanc,
+        # puis on ne garde que l'écran du MacBook pour la vidéo.
+        draw = ImageDraw.Draw(base)
+        phone_x, phone_y, phone_w, phone_h = PHONE_SCREEN
+        draw.rectangle((0, 0, phone_x + phone_w + 8, H), fill=(255, 255, 255))
+
         black_rect(base, LAPTOP_SCREEN)
-        black_rect(base, PHONE_SCREEN)
         base.save(MOCKUP_BASE, optimize=True)
         print(f"Wrote mockup base {MOCKUP_BASE}")
         return base
@@ -127,7 +133,6 @@ def encode_video() -> None:
             content = Image.open(content_path).convert("RGB")
             out = base.copy()
             paste_video(out, content, LAPTOP_SCREEN)
-            paste_video(out, content, PHONE_SCREEN)
             out.save(frames_out / f"{i:04d}.png", optimize=False)
             if i % 48 == 0:
                 print(f"Composited {i}/{n}")
