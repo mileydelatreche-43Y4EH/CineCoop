@@ -538,10 +538,10 @@ body.nav-menu-open {
 .hero-demo-stage {
   position: relative;
   width: 100%;
-  --hero-demo-video-h: 360px;
   background: #0a0a0a;
   border-radius: 10px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
 
 /* Vidéo + chat côte à côte (pas de recadrage vidéo) */
@@ -550,6 +550,7 @@ body.nav-menu-open {
   flex-direction: row;
   align-items: stretch;
   width: 100%;
+  height: 100%;
   line-height: 0;
   background: #0a0a0a;
   overflow: hidden;
@@ -563,8 +564,7 @@ body.nav-menu-open {
   line-height: 0;
   overflow: hidden;
   background: #0a0a0a;
-  height: var(--hero-demo-video-h, 360px);
-  max-height: var(--hero-demo-video-h, 360px);
+  height: 100%;
 }
 
 .hero-demo-video {
@@ -588,9 +588,9 @@ body.nav-menu-open {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
-  height: var(--hero-demo-video-h, 280px);
-  max-height: var(--hero-demo-video-h, 280px);
+  align-self: stretch;
+  height: 100%;
+  max-height: none;
   min-height: 0;
   margin: 0;
   overflow: hidden;
