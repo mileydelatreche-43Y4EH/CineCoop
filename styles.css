@@ -3220,8 +3220,8 @@ body.page-support {
   position: relative;
   min-height: 100svh;
   min-height: 100dvh;
-  padding: calc(var(--header-h) + clamp(40px, 8vw, 72px)) clamp(20px, 5vw, 48px)
-    clamp(48px, 7vw, 72px);
+  padding: calc(var(--header-h) + clamp(16px, 3vw, 28px)) clamp(20px, 5vw, 48px)
+    clamp(28px, 4vw, 44px);
   overflow: hidden;
   text-align: center;
   background: linear-gradient(
@@ -3294,6 +3294,7 @@ body.page-support {
   z-index: 1;
   max-width: 720px;
   margin: 0 auto;
+  transform: translateY(-24px);
 }
 
 .support-hero .eyebrow {
@@ -3340,29 +3341,12 @@ body.page-support {
 
 .support-categories {
   position: relative;
-  padding: clamp(8px, 2vw, 16px) clamp(20px, 5vw, 48px) clamp(32px, 5vw, 48px);
-  background: linear-gradient(
-    180deg,
-    var(--surface-dark-elevated) 0%,
-    #1a1e2a 48%,
-    var(--surface-dark-elevated) 100%
-  );
+  padding: clamp(20px, 3.5vw, 32px) clamp(20px, 5vw, 48px) clamp(24px, 4vw, 36px);
+  background: #fff;
 }
 
 .support-categories::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 96px;
-  background: linear-gradient(
-    to bottom,
-    var(--surface-dark-elevated) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .support-grid {
@@ -3382,10 +3366,10 @@ body.page-support {
   gap: 10px;
   width: 100%;
   padding: 22px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #e5ebf4;
   border-radius: 16px;
-  background: var(--surface-dark-elevated);
-  color: #fff;
+  background: #fff;
+  color: var(--text);
   text-align: left;
   cursor: pointer;
   font: inherit;
@@ -3397,16 +3381,17 @@ body.page-support {
 }
 
 .support-card:hover {
-  border-color: rgba(105, 180, 255, 0.45);
+  border-color: rgba(105, 180, 255, 0.55);
   transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(15, 17, 21, 0.08);
 }
 
 .support-card.is-active {
   border-color: var(--brand-mid);
-  background: linear-gradient(145deg, rgba(47, 102, 255, 0.18) 0%, var(--surface-dark-elevated) 55%);
+  background: linear-gradient(145deg, rgba(47, 102, 255, 0.12) 0%, #ffffff 62%);
   box-shadow:
-    0 0 0 1px rgba(47, 102, 255, 0.35),
-    0 16px 40px rgba(0, 0, 0, 0.35);
+    0 0 0 1px rgba(47, 102, 255, 0.24),
+    0 12px 30px rgba(47, 102, 255, 0.15);
 }
 
 .support-card-icon {
@@ -3416,8 +3401,8 @@ body.page-support {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(47, 102, 255, 0.2);
-  color: var(--brand-light);
+  background: rgba(47, 102, 255, 0.12);
+  color: var(--brand);
 }
 
 .support-card-title {
@@ -3429,7 +3414,7 @@ body.page-support {
 .support-card-desc {
   font-size: 0.82rem;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
 }
 
 .support-content {
