@@ -71,30 +71,36 @@ html {
     padding-bottom: 4px;
   }
 
-  /* Desktop: chat exactement à la hauteur de la vidéo (sans bande noire) */
+  /* Desktop: chat calé à droite, hauteur = vidéo (stage = hauteur vidéo seule) */
   .hero-demo-stage {
     --hero-chat-w: clamp(156px, 26%, 200px);
   }
 
   .hero-demo-player {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    display: block;
+    position: relative;
+    height: auto;
   }
 
   .hero-demo-media {
-    flex: 1 1 auto;
-    width: auto;
+    flex: none;
+    width: calc(100% - var(--hero-chat-w));
+    height: auto;
+    max-height: none;
   }
 
   .hero-demo-chat.cc-demo-chat {
-    position: relative;
-    flex: 0 0 var(--hero-chat-w);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    flex: none;
     width: var(--hero-chat-w);
     min-width: var(--hero-chat-w);
     max-width: var(--hero-chat-w);
-    height: var(--hero-demo-video-h, auto);
-    max-height: var(--hero-demo-video-h, none);
+    height: auto;
+    max-height: none;
   }
 }
 
@@ -588,7 +594,9 @@ body.nav-menu-open {
   align-self: flex-start;
   display: block;
   padding: 0;
+  margin: 0;
   line-height: 0;
+  font-size: 0;
   overflow: hidden;
   background: #0a0a0a;
   height: auto;

@@ -447,39 +447,34 @@ function shuffleHeroLines() {
 function syncHeroDemoHeights() {
   const video = document.querySelector(".hero-demo-video");
   const stage = document.querySelector(".hero-demo-stage");
-  const player = document.querySelector(".hero-demo-player");
-  const media = document.querySelector(".hero-demo-media");
   const chat = document.querySelector(".hero-demo-chat");
   if (!video || !stage) return;
 
-  /* Mesure la vidéo seule (sans que le chat n’étire le conteneur) */
+  /* Desktop : le chat est en absolute, le stage suit la vidéo — pas de hauteur forcée */
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+  if (isDesktop) {
+    stage.style.removeProperty("height");
+    stage.style.removeProperty("--hero-demo-video-h");
+    if (chat) {
+      chat.style.removeProperty("height");
+      chat.style.removeProperty("max-height");
+    }
+    return;
+  }
+
+  /* Mobile : caler le chat sous la vidéo */
   if (chat) {
     chat.style.removeProperty("height");
     chat.style.removeProperty("max-height");
   }
-  if (player) player.style.removeProperty("height");
-  if (stage) stage.style.removeProperty("height");
-  if (media) {
-    media.style.removeProperty("height");
-    media.style.removeProperty("max-height");
-  }
 
-  const h = Math.round(video.getBoundingClientRect().height);
+  const h = video.offsetHeight;
   if (h <= 0) return;
 
   const px = `${h}px`;
   stage.style.setProperty("--hero-demo-video-h", px);
-  player?.style.setProperty("--hero-demo-video-h", px);
-  if (stage) stage.style.height = px;
-  if (player) player.style.height = px;
-  if (media) {
-    media.style.height = px;
-    media.style.maxHeight = px;
-  }
-  if (chat) {
-    chat.style.height = px;
-    chat.style.maxHeight = px;
-  }
+  chat.style.height = px;
+  chat.style.maxHeight = px;
 }
 
 function initHeroDemoVideo() {
