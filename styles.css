@@ -1295,16 +1295,16 @@ body.nav-menu-open {
 
   .hero-platforms {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: clamp(16px, 2.5vw, 32px);
+    justify-content: flex-end;
+    gap: clamp(10px, 1.4vh, 16px);
     width: 100%;
     margin-top: auto;
-    padding: clamp(10px, 1.5vh, 18px) 0 0;
+    padding: clamp(8px, 1.5vh, 16px) 0 clamp(4px, 1vh, 10px);
     opacity: 1;
     transform: none;
-    text-align: left;
+    text-align: center;
   }
 
   .hero-platforms.reveal {
@@ -1316,22 +1316,24 @@ body.nav-menu-open {
     top: 0;
     margin: 0;
     flex: 0 0 auto;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
     white-space: nowrap;
+    color: rgba(255, 255, 255, 0.45);
   }
 
   .platforms-showcase {
     display: flex;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
-    gap: clamp(10px, 1.8vw, 24px);
-    max-width: none;
+    justify-content: center;
+    gap: clamp(18px, 2.4vw, 32px);
+    width: fit-content;
+    max-width: min(960px, 92%);
     min-height: 0;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     overflow: visible;
   }
 
@@ -1340,17 +1342,17 @@ body.nav-menu-open {
   }
 
   .platforms-showcase img {
-    height: clamp(18px, 2vh, 26px);
-    max-width: clamp(52px, 6vw, 88px);
+    height: clamp(28px, 3.2vh, 40px);
+    max-width: clamp(80px, 9vw, 128px);
   }
 
   .platforms-showcase .logo-disney img {
-    height: clamp(22px, 2.4vh, 30px);
-    max-width: clamp(64px, 7.5vw, 104px);
+    height: clamp(32px, 3.6vh, 44px);
+    max-width: clamp(96px, 11vw, 140px);
   }
 
   .platforms-showcase .logo-prime img {
-    transform: translateY(1px);
+    transform: translateY(2px);
   }
 
   .platforms-marquee {
