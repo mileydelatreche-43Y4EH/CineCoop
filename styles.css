@@ -3196,26 +3196,14 @@ body.page-support {
 }
 
 .page-support .site-header {
-  background: linear-gradient(
-    to bottom,
-    rgba(8, 11, 20, 0.82) 0%,
-    rgba(8, 11, 20, 0.32) 58%,
-    rgba(8, 11, 20, 0) 100%
-  );
+  background: var(--surface-dark);
   box-shadow: none;
   border-bottom: 0;
 }
 
 .page-support .site-header.is-scrolled {
-  background: linear-gradient(
-    to bottom,
-    rgba(8, 11, 20, 0.82) 0%,
-    rgba(8, 11, 20, 0.32) 58%,
-    rgba(8, 11, 20, 0) 100%
-  );
-  box-shadow: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background: var(--surface-dark);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .page-support .nav a[aria-current="page"] {
