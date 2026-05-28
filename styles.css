@@ -576,6 +576,7 @@ body.nav-menu-open {
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
+  height: auto;
   line-height: 0;
   background: #0a0a0a;
   overflow: hidden;
@@ -584,11 +585,13 @@ body.nav-menu-open {
 .hero-demo-media {
   flex: 1 1 auto;
   min-width: 0;
+  align-self: flex-start;
   display: block;
   padding: 0;
   line-height: 0;
   overflow: hidden;
   background: #0a0a0a;
+  height: auto;
 }
 
 .hero-demo-video {
@@ -613,8 +616,8 @@ body.nav-menu-open {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  height: auto;
-  max-height: none;
+  height: var(--hero-demo-video-h, auto);
+  max-height: var(--hero-demo-video-h, none);
   min-height: 0;
   margin: 0;
   overflow: hidden;
