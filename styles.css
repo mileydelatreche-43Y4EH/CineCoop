@@ -81,14 +81,14 @@ html {
   }
 
   .hero-platforms {
-    margin-top: clamp(10px, 1.8vh, 20px);
+    margin-top: clamp(-128px, -11vh, -72px);
     padding-top: 0;
-    padding-bottom: clamp(8px, 1.2vh, 14px);
+    padding-bottom: clamp(6px, 1vh, 12px);
   }
 
   .platforms-label {
     top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 
   /* Desktop: chat calé à droite, hauteur = vidéo (stage = hauteur vidéo seule) */
