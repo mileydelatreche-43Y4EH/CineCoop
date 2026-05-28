@@ -66,7 +66,7 @@ html {
   }
 
   .hero-platforms {
-    margin-top: -132px;
+    margin-top: -112px;
     padding-top: 0;
     padding-bottom: 4px;
   }
@@ -77,25 +77,24 @@ html {
   }
 
   .hero-demo-player {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--hero-chat-w);
-    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .hero-demo-media {
-    width: 100%;
+    flex: 1 1 auto;
+    width: auto;
   }
 
   .hero-demo-chat.cc-demo-chat {
     position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    width: auto;
-    min-width: 0;
-    max-width: none;
-    height: 100%;
-    max-height: 100%;
+    flex: 0 0 var(--hero-chat-w);
+    width: var(--hero-chat-w);
+    min-width: var(--hero-chat-w);
+    max-width: var(--hero-chat-w);
+    height: var(--hero-demo-video-h, auto);
+    max-height: var(--hero-demo-video-h, none);
   }
 }
 
