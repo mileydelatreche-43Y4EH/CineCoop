@@ -85,11 +85,12 @@ html {
   /* Desktop: chat calé à droite, hauteur = vidéo (stage = hauteur vidéo seule) */
   .hero-demo-stage {
     --hero-chat-w: clamp(156px, 26%, 200px);
+    overflow: hidden;
   }
 
   .hero-demo-player {
     display: block;
-    position: relative;
+    position: static;
     height: auto;
   }
 
@@ -104,14 +105,15 @@ html {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     left: auto;
     flex: none;
     width: var(--hero-chat-w);
     min-width: var(--hero-chat-w);
     max-width: var(--hero-chat-w);
-    height: auto;
-    max-height: none;
+    height: var(--hero-demo-video-h, auto);
+    max-height: var(--hero-demo-video-h, none);
+    overflow: hidden;
   }
 }
 
