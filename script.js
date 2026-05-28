@@ -1,4 +1,4 @@
-const CHROME_STORE_URL = "#";
+const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/CineCoop/nmacnladldcajbemafepjdhkagpcminf?hl=fr&authuser=1";
 
 const STEPS = [
   {
