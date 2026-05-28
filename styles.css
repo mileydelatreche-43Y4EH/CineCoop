@@ -519,7 +519,7 @@ body.nav-menu-open {
 .hero-demo-stage {
   position: relative;
   width: 100%;
-  background: #0a0a0a;
+  background: transparent;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -546,7 +546,7 @@ body.nav-menu-open {
   line-height: 0;
   font-size: 0;
   overflow: hidden;
-  background: #0a0a0a;
+  background: transparent;
   height: auto;
 }
 
@@ -1366,6 +1366,7 @@ body.nav-menu-open {
     width: 100%;
     line-height: 0;
     font-size: 0;
+    background: transparent;
     overflow: hidden;
   }
 

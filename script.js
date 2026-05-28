@@ -447,20 +447,25 @@ function shuffleHeroLines() {
 function syncHeroDemoHeights() {
   const video = document.querySelector(".hero-demo-video");
   const stage = document.querySelector(".hero-demo-stage");
+  const player = document.querySelector(".hero-demo-player");
   const chat = document.querySelector(".hero-demo-chat");
-  if (!video || !stage || !chat) return;
+  if (!video || !stage || !chat || !player) return;
 
-  stage.style.removeProperty("height");
   chat.style.removeProperty("height");
   chat.style.removeProperty("max-height");
+  chat.style.removeProperty("min-height");
+  player.style.removeProperty("height");
+  player.style.removeProperty("min-height");
 
-  const h = Math.round(video.getBoundingClientRect().height);
+  const h = video.getBoundingClientRect().height;
   if (h <= 0) return;
 
-  const px = `${h}px`;
+  const px = `${h.toFixed(2)}px`;
   stage.style.setProperty("--hero-demo-video-h", px);
-  stage.style.height = px;
+  player.style.height = px;
+  player.style.minHeight = px;
   chat.style.height = px;
+  chat.style.minHeight = px;
   chat.style.maxHeight = px;
 }
 
