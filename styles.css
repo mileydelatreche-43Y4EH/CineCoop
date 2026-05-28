@@ -57,14 +57,14 @@ html {
     min-height: calc(100svh / 1.25);
     min-height: calc(100dvh / 1.25);
     padding-top: calc((var(--header-h) + 8px) / 1.25);
-    padding-bottom: clamp(8px, 1.2vh, 16px);
-    --hero-align-top: clamp(16px, 2.5vh, 32px);
+    padding-bottom: clamp(12px, 1.5vh, 20px);
+    --hero-align-top: clamp(20px, 4vh, 40px);
   }
 
   .hero-main {
     display: grid;
-    grid-template-columns: minmax(0, 1.68fr) minmax(0, 0.72fr);
-    gap: clamp(14px, 2vw, 28px);
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.85fr);
+    gap: clamp(20px, 2.5vw, 36px);
     align-items: start;
     flex: 1 1 auto;
     min-height: 0;
@@ -77,20 +77,27 @@ html {
   }
 
   .hero-copy {
-    max-width: 30rem;
+    max-width: 28rem;
     padding-top: var(--hero-align-top);
-    padding-left: clamp(12px, 1.5vw, 24px);
+    padding-left: clamp(8px, 1vw, 16px);
   }
 
+  /* Bande logos type Teleparty — pleine largeur, logos plus petits */
   .hero-platforms {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(16px, 2.5vw, 32px);
     width: 100%;
     margin-top: auto;
-    padding-top: clamp(8px, 1.2vh, 14px);
-    padding-bottom: clamp(4px, 0.8vh, 10px);
+    padding-top: clamp(10px, 1.5vh, 18px);
+    padding-bottom: 0;
     opacity: 1;
     transform: none;
     z-index: 2;
     flex-shrink: 0;
+    text-align: left;
   }
 
   .hero-platforms.reveal {
@@ -98,47 +105,93 @@ html {
     transform: none;
   }
 
+  .platforms-label {
+    top: 0;
+    margin: 0;
+    flex: 0 0 auto;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+
   .platforms-showcase {
     display: flex;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(10px, 1.8vw, 24px);
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .platforms-showcase li {
+    min-height: 0;
+  }
+
+  .platforms-showcase img {
+    height: clamp(18px, 2vh, 26px);
+    max-width: clamp(52px, 6vw, 88px);
+  }
+
+  .platforms-showcase .logo-disney img {
+    height: clamp(22px, 2.4vh, 30px);
+    max-width: clamp(64px, 7.5vw, 104px);
+  }
+
+  .platforms-showcase .logo-prime img {
+    transform: translateY(1px);
   }
 
   .platforms-marquee {
     display: none;
   }
 
-  .platforms-label {
-    top: 0;
-    margin-bottom: 8px;
-  }
-
+  /* Vidéo + chat : stage = hauteur vidéo, chat en absolute */
   .hero-demo-stage {
-    --hero-chat-w: clamp(178px, 30%, 240px);
+    --hero-chat-w: clamp(152px, 21%, 188px);
+    position: relative;
+    display: block;
+    width: 100%;
+    line-height: 0;
+    font-size: 0;
     overflow: hidden;
   }
 
   .hero-demo-player {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    display: block;
+    position: relative;
+    width: 100%;
     height: auto;
     line-height: 0;
+    background: transparent;
   }
 
   .hero-demo-media {
-    flex: 1 1 auto;
-    min-width: 0;
-    width: auto;
+    display: block;
+    width: calc(100% - var(--hero-chat-w));
+    margin: 0;
+    padding: 0;
     height: auto;
+    flex: none;
+    align-self: auto;
   }
 
   .hero-demo-chat.cc-demo-chat {
-    position: relative;
-    flex: 0 0 var(--hero-chat-w);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    flex: none;
     width: var(--hero-chat-w);
     min-width: var(--hero-chat-w);
     max-width: var(--hero-chat-w);
     height: var(--hero-demo-video-h, auto);
     max-height: var(--hero-demo-video-h, none);
+    min-height: 0;
+    align-self: auto;
     overflow: hidden;
   }
 }

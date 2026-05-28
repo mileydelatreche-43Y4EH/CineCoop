@@ -459,13 +459,17 @@ function syncHeroDemoHeights() {
 
   const px = `${h}px`;
   stage.style.setProperty("--hero-demo-video-h", px);
+  stage.style.height = px;
   chat.style.height = px;
   chat.style.maxHeight = px;
 }
 
 function scheduleHeroDemoHeightSync() {
   syncHeroDemoHeights();
-  requestAnimationFrame(syncHeroDemoHeights);
+  requestAnimationFrame(() => {
+    syncHeroDemoHeights();
+    requestAnimationFrame(syncHeroDemoHeights);
+  });
 }
 
 function initHeroDemoVideo() {
@@ -487,6 +491,8 @@ function initHeroDemoVideo() {
   }
   window.addEventListener("resize", onLayout, { passive: true });
   window.addEventListener("load", onLayout, { passive: true });
+  window.setTimeout(onLayout, 250);
+  window.setTimeout(onLayout, 800);
   onLayout();
 
   const play = () => {
