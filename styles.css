@@ -1827,6 +1827,9 @@ body.nav-menu-open {
 .step-screen {
   margin-bottom: 20px;
   transition: opacity 0.35s ease, transform 0.35s ease;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .step-screen.is-changing {
@@ -1835,7 +1838,8 @@ body.nav-menu-open {
 }
 
 .step-screen-caption {
-  padding: 4px 4px 0;
+  padding: 8px 0 0;
+  background: transparent;
 }
 
 .step-tag {
@@ -2347,6 +2351,9 @@ body.nav-menu-open {
 
 .step-detail {
   transition: opacity 0.35s ease;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .step-detail.is-changing {
