@@ -64,11 +64,20 @@ html {
     height: auto;
     min-height: 0;
     overflow: visible;
-    --hero-align-top: clamp(28px, 4vh, 48px);
+    grid-template-columns: minmax(0, 1.68fr) minmax(0, 0.72fr);
+    gap: clamp(14px, 2vw, 28px);
+    --hero-align-top: clamp(16px, 2.5vh, 32px);
+  }
+
+  .hero-visual {
+    padding-top: var(--hero-align-top);
+    max-width: none;
   }
 
   .hero-copy {
+    max-width: 30rem;
     padding-top: var(--hero-align-top);
+    padding-left: clamp(12px, 1.5vw, 24px);
   }
 
   .hero-platforms {
@@ -84,7 +93,7 @@ html {
 
   /* Desktop: chat calé à droite, hauteur = vidéo (stage = hauteur vidéo seule) */
   .hero-demo-stage {
-    --hero-chat-w: clamp(156px, 26%, 200px);
+    --hero-chat-w: clamp(178px, 30%, 240px);
     overflow: hidden;
   }
 
