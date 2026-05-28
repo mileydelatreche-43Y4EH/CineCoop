@@ -51,9 +51,8 @@ html {
   }
 
   .hero-shell {
-    display: grid;
-    grid-template-rows: auto;
-    align-content: start;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     min-height: calc(100svh / 1.25);
     min-height: calc(100dvh / 1.25);
@@ -67,22 +66,14 @@ html {
     grid-template-columns: minmax(0, 1.68fr) minmax(0, 0.72fr);
     gap: clamp(14px, 2vw, 28px);
     align-items: start;
-    height: auto;
+    flex: 1 1 auto;
     min-height: 0;
     overflow: visible;
   }
 
   .hero-visual {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(10px, 1.4vh, 16px);
     padding-top: var(--hero-align-top);
     max-width: none;
-  }
-
-  .hero-visual .hero-platforms {
-    margin-top: 0;
-    padding-bottom: 0;
   }
 
   .hero-copy {
@@ -92,9 +83,14 @@ html {
   }
 
   .hero-platforms {
+    width: 100%;
+    margin-top: auto;
+    padding-top: clamp(8px, 1.2vh, 14px);
+    padding-bottom: clamp(4px, 0.8vh, 10px);
     opacity: 1;
     transform: none;
     z-index: 2;
+    flex-shrink: 0;
   }
 
   .hero-platforms.reveal {
@@ -117,26 +113,27 @@ html {
 
   .hero-demo-stage {
     --hero-chat-w: clamp(178px, 30%, 240px);
-    position: relative;
     overflow: hidden;
   }
 
   .hero-demo-player {
-    display: block;
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     height: auto;
     line-height: 0;
   }
 
   .hero-demo-media {
-    width: calc(100% - var(--hero-chat-w));
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
     height: auto;
   }
 
   .hero-demo-chat.cc-demo-chat {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
+    flex: 0 0 var(--hero-chat-w);
     width: var(--hero-chat-w);
     min-width: var(--hero-chat-w);
     max-width: var(--hero-chat-w);
