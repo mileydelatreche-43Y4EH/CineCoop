@@ -41,13 +41,12 @@ html {
     zoom: 1.25;
   }
 
-  /* Compense le zoom pour garder le hero dans le viewport */
+  /* Hero : hauteur au contenu (fond sombre ne remplit plus tout l'écran) */
   .hero {
-    height: calc((100svh - 8px) / 1.25);
-    height: calc((100dvh - 8px) / 1.25);
-    max-height: calc((100svh - 8px) / 1.25);
-    max-height: calc((100dvh - 8px) / 1.25);
-    overflow: hidden;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
   }
 }
 
@@ -362,29 +361,26 @@ body.nav-menu-open {
   margin-top: 4px;
 }
 
-/* Hero — Teleparty-style fold (100svh, platforms visible without scroll) */
+/* Hero — fond sombre limité au contenu ; blanc au scroll */
 .hero {
   position: relative;
-  height: 100svh;
-  height: 100dvh;
-  max-height: 100svh;
-  max-height: 100dvh;
+  height: auto;
+  min-height: 0;
   margin: 0;
   padding: 0;
   background: var(--surface-dark);
   color: var(--white);
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
 }
 
 .hero-shell {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  row-gap: 0;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
   max-width: 1480px;
   margin: 0 auto;
-  padding: calc(var(--header-h) + 8px) clamp(24px, 5vw, 72px) 10px;
+  padding: calc(var(--header-h) + 8px) clamp(24px, 5vw, 72px) clamp(16px, 2.5vh, 28px);
   box-sizing: border-box;
 }
 
@@ -1138,8 +1134,8 @@ body.nav-menu-open {
   justify-content: flex-start;
   width: 100%;
   min-height: 0;
-  padding: 0 0 clamp(12px, 1.6vh, 18px);
-  margin-top: -32px;
+  padding: 0;
+  margin-top: clamp(14px, 2.5vh, 28px);
   overflow: visible;
   text-align: center;
   flex-shrink: 0;
@@ -1249,14 +1245,20 @@ body.nav-menu-open {
 
 /* Desktop hero — règles APRÈS les styles de base (cascade) */
 @media (min-width: 1024px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+
   .hero-shell {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    min-height: calc(100svh / 1.25);
-    min-height: calc(100dvh / 1.25);
+    height: auto;
+    min-height: 0;
     padding-top: calc((var(--header-h) + 8px) / 1.25);
-    padding-bottom: clamp(12px, 1.5vh, 20px);
+    padding-bottom: clamp(16px, 2.5vh, 28px);
   }
 
   .hero-main {
@@ -1289,8 +1291,8 @@ body.nav-menu-open {
     justify-content: flex-start;
     gap: clamp(16px, 2.5vw, 32px);
     width: 100%;
-    margin-top: auto;
-    padding: clamp(10px, 1.5vh, 18px) 0 0;
+    margin-top: clamp(14px, 2vh, 24px);
+    padding: 0;
     opacity: 1;
     transform: none;
     text-align: left;
@@ -2478,17 +2480,15 @@ body.nav-menu-open {
 
   .hero {
     height: auto;
-    min-height: 100svh;
-    min-height: 100dvh;
+    min-height: 0;
     max-height: none;
     overflow: visible;
   }
 
   .hero-shell {
     height: auto;
-    min-height: calc(100svh - var(--header-h));
-    min-height: calc(100dvh - var(--header-h));
-    padding: calc(var(--header-h) + 6px) var(--content-pad) 12px;
+    min-height: 0;
+    padding: calc(var(--header-h) + 6px) var(--content-pad) clamp(16px, 3vh, 28px);
   }
 
   .hero-main,
