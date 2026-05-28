@@ -41,10 +41,11 @@ html {
     zoom: 1.25;
   }
 
-  /* Hero : hauteur au contenu (fond sombre ne remplit plus tout l'écran) */
+  /* Hero plein écran au chargement (compense le zoom) */
   .hero {
+    min-height: calc(100svh / 1.25);
+    min-height: calc(100dvh / 1.25);
     height: auto;
-    min-height: 0;
     max-height: none;
     overflow: visible;
   }
@@ -361,11 +362,14 @@ body.nav-menu-open {
   margin-top: 4px;
 }
 
-/* Hero — fond sombre limité au contenu ; blanc au scroll */
+/* Hero — plein écran au chargement ; blanc uniquement au scroll */
 .hero {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  min-height: 100dvh;
   height: auto;
-  min-height: 0;
   margin: 0;
   padding: 0;
   background: var(--surface-dark);
@@ -377,7 +381,8 @@ body.nav-menu-open {
 .hero-shell {
   display: flex;
   flex-direction: column;
-  height: auto;
+  flex: 1;
+  width: 100%;
   max-width: 1480px;
   margin: 0 auto;
   padding: calc(var(--header-h) + 8px) clamp(24px, 5vw, 72px) clamp(16px, 2.5vh, 28px);
@@ -390,6 +395,7 @@ body.nav-menu-open {
   gap: clamp(18px, 3vw, 44px);
   align-items: start;
   align-content: start;
+  flex: 1 1 auto;
   min-height: 0;
   height: auto;
   padding: 0;
@@ -1135,7 +1141,7 @@ body.nav-menu-open {
   width: 100%;
   min-height: 0;
   padding: 0;
-  margin-top: clamp(14px, 2.5vh, 28px);
+  margin-top: auto;
   overflow: visible;
   text-align: center;
   flex-shrink: 0;
@@ -1246,8 +1252,9 @@ body.nav-menu-open {
 /* Desktop hero — règles APRÈS les styles de base (cascade) */
 @media (min-width: 1024px) {
   .hero {
+    min-height: calc(100svh / 1.25);
+    min-height: calc(100dvh / 1.25);
     height: auto;
-    min-height: 0;
     max-height: none;
     overflow: visible;
   }
@@ -1255,10 +1262,12 @@ body.nav-menu-open {
   .hero-shell {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-height: calc(100svh / 1.25);
+    min-height: calc(100dvh / 1.25);
     height: auto;
-    min-height: 0;
     padding-top: calc((var(--header-h) + 8px) / 1.25);
-    padding-bottom: clamp(16px, 2.5vh, 28px);
+    padding-bottom: clamp(12px, 1.5vh, 20px);
   }
 
   .hero-main {
@@ -1267,7 +1276,7 @@ body.nav-menu-open {
     gap: clamp(20px, 2.5vw, 36px);
     align-items: start;
     align-content: start;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     height: auto;
     min-height: 0;
     margin-top: 0;
@@ -1291,8 +1300,8 @@ body.nav-menu-open {
     justify-content: flex-start;
     gap: clamp(16px, 2.5vw, 32px);
     width: 100%;
-    margin-top: clamp(14px, 2vh, 24px);
-    padding: 0;
+    margin-top: auto;
+    padding: clamp(10px, 1.5vh, 18px) 0 0;
     opacity: 1;
     transform: none;
     text-align: left;
@@ -2479,15 +2488,18 @@ body.nav-menu-open {
   }
 
   .hero {
+    min-height: 100svh;
+    min-height: 100dvh;
     height: auto;
-    min-height: 0;
     max-height: none;
     overflow: visible;
   }
 
   .hero-shell {
+    flex: 1;
+    min-height: calc(100svh - var(--header-h));
+    min-height: calc(100dvh - var(--header-h));
     height: auto;
-    min-height: 0;
     padding: calc(var(--header-h) + 6px) var(--content-pad) clamp(16px, 3vh, 28px);
   }
 
