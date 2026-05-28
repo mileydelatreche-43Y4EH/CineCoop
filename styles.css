@@ -3204,8 +3204,15 @@ body.page-support {
 }
 
 .page-support .site-header.is-scrolled {
-  background: rgba(10, 10, 10, 0.94);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 11, 20, 0.82) 0%,
+    rgba(8, 11, 20, 0.32) 58%,
+    rgba(8, 11, 20, 0) 100%
+  );
+  box-shadow: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .page-support .nav a[aria-current="page"] {
@@ -3222,6 +3229,8 @@ body.page-support {
 
 .support-hero {
   position: relative;
+  min-height: 100svh;
+  min-height: 100dvh;
   padding: calc(var(--header-h) + clamp(40px, 8vw, 72px)) clamp(20px, 5vw, 48px)
     clamp(48px, 7vw, 72px);
   overflow: hidden;
@@ -3234,6 +3243,13 @@ body.page-support {
     #161a26 78%,
     var(--surface-dark-elevated) 100%
   );
+}
+
+@media (min-width: 1024px) {
+  .page-support .support-hero {
+    min-height: calc(100svh / 1.25);
+    min-height: calc(100dvh / 1.25);
+  }
 }
 
 .support-hero::after {
