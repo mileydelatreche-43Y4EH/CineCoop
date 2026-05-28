@@ -1384,9 +1384,18 @@ body.nav-menu-open {
     width: calc(100% - var(--hero-chat-w));
     margin: 0;
     padding: 0;
-    height: auto;
+    height: var(--hero-demo-video-h, auto);
+    min-height: var(--hero-demo-video-h, 0);
+    max-height: var(--hero-demo-video-h, none);
     flex: none;
     align-self: auto;
+  }
+
+  .hero-demo-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
   }
 
   .hero-demo-chat.cc-demo-chat {
