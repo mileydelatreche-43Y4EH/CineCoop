@@ -1280,7 +1280,7 @@ body.nav-menu-open {
     height: auto;
     min-height: 0;
     margin-top: 0;
-    padding-top: 0;
+    padding-top: clamp(32px, 6vh, 72px);
   }
 
   .hero-visual {
