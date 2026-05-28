@@ -47,53 +47,54 @@ html {
     height: calc((100dvh - 8px) / 1.25);
     max-height: calc((100svh - 8px) / 1.25);
     max-height: calc((100dvh - 8px) / 1.25);
-    overflow: visible;
+    overflow: hidden;
   }
 
-  /* Hero compact : logos visibles sous vidéo + chat */
   .hero-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1.68fr) minmax(0, 0.72fr);
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     align-content: start;
-    column-gap: clamp(14px, 2vw, 28px);
-    row-gap: clamp(6px, 1vh, 12px);
     height: 100%;
     min-height: calc(100svh / 1.25);
     min-height: calc(100dvh / 1.25);
     padding-top: calc((var(--header-h) + 8px) / 1.25);
-    padding-bottom: clamp(10px, 1.5vh, 18px);
+    padding-bottom: clamp(8px, 1.2vh, 16px);
     --hero-align-top: clamp(16px, 2.5vh, 32px);
   }
 
   .hero-main {
-    display: contents;
+    display: grid;
+    grid-template-columns: minmax(0, 1.68fr) minmax(0, 0.72fr);
+    gap: clamp(14px, 2vw, 28px);
+    align-items: start;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 
   .hero-visual {
-    grid-column: 1;
-    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.4vh, 16px);
     padding-top: var(--hero-align-top);
     max-width: none;
   }
 
+  .hero-visual .hero-platforms {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
   .hero-copy {
-    grid-column: 2;
-    grid-row: 1;
     max-width: 30rem;
     padding-top: var(--hero-align-top);
     padding-left: clamp(12px, 1.5vw, 24px);
   }
 
   .hero-platforms {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    margin-top: clamp(-72px, -7vh, -36px);
-    padding-top: 0;
-    padding-bottom: clamp(6px, 1vh, 12px);
     opacity: 1;
     transform: none;
-    z-index: 3;
+    z-index: 2;
   }
 
   .hero-platforms.reveal {
@@ -111,35 +112,31 @@ html {
 
   .platforms-label {
     top: 0;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
-  /* Desktop: chat calé à droite, hauteur = vidéo (stage = hauteur vidéo seule) */
   .hero-demo-stage {
     --hero-chat-w: clamp(178px, 30%, 240px);
+    position: relative;
     overflow: hidden;
   }
 
   .hero-demo-player {
     display: block;
-    position: static;
+    position: relative;
     height: auto;
+    line-height: 0;
   }
 
   .hero-demo-media {
-    flex: none;
     width: calc(100% - var(--hero-chat-w));
     height: auto;
-    max-height: none;
   }
 
   .hero-demo-chat.cc-demo-chat {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: auto;
-    left: auto;
-    flex: none;
     width: var(--hero-chat-w);
     min-width: var(--hero-chat-w);
     max-width: var(--hero-chat-w);

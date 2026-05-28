@@ -454,18 +454,19 @@ function syncHeroDemoHeights() {
   chat.style.removeProperty("height");
   chat.style.removeProperty("max-height");
 
-  const h = video.offsetHeight;
+  const h = Math.round(video.getBoundingClientRect().height);
   if (h <= 0) return;
 
   const px = `${h}px`;
   stage.style.setProperty("--hero-demo-video-h", px);
-
-  if (window.matchMedia("(min-width: 1024px)").matches) {
-    stage.style.height = px;
-  }
-
+  stage.style.height = px;
   chat.style.height = px;
   chat.style.maxHeight = px;
+}
+
+function scheduleHeroDemoHeightSync() {
+  syncHeroDemoHeights();
+  requestAnimationFrame(syncHeroDemoHeights);
 }
 
 function initHeroDemoVideo() {
@@ -477,9 +478,10 @@ function initHeroDemoVideo() {
   video.muted = true;
   video.setAttribute("loop", "");
 
-  const onLayout = () => syncHeroDemoHeights();
+  const onLayout = () => scheduleHeroDemoHeightSync();
   video.addEventListener("loadedmetadata", onLayout);
   video.addEventListener("loadeddata", onLayout);
+  video.addEventListener("canplay", onLayout);
   if (typeof ResizeObserver !== "undefined") {
     const ro = new ResizeObserver(onLayout);
     ro.observe(video);
