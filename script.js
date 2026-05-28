@@ -447,37 +447,19 @@ function shuffleHeroLines() {
 function syncHeroDemoHeights() {
   const video = document.querySelector(".hero-demo-video");
   const stage = document.querySelector(".hero-demo-stage");
-  const player = document.querySelector(".hero-demo-player");
-  const media = document.querySelector(".hero-demo-media");
   const chat = document.querySelector(".hero-demo-chat");
-  if (!video || !stage || !chat || !player || !media) return;
+  if (!video || !stage || !chat) return;
 
   chat.style.removeProperty("height");
   chat.style.removeProperty("max-height");
   chat.style.removeProperty("min-height");
-  player.style.removeProperty("height");
-  player.style.removeProperty("min-height");
-  media.style.removeProperty("height");
-  media.style.removeProperty("min-height");
-  media.style.removeProperty("max-height");
   stage.style.removeProperty("height");
 
-  let h = 0;
-  const mediaWidth = media.getBoundingClientRect().width;
-  if (video.videoWidth > 0 && video.videoHeight > 0 && mediaWidth > 0) {
-    h = (mediaWidth * video.videoHeight) / video.videoWidth;
-  }
-  if (h <= 0) h = video.getBoundingClientRect().height;
+  const h = video.getBoundingClientRect().height;
   if (h <= 0) return;
 
   const px = `${h.toFixed(2)}px`;
   stage.style.setProperty("--hero-demo-video-h", px);
-  stage.style.height = px;
-  player.style.height = px;
-  player.style.minHeight = px;
-  media.style.height = px;
-  media.style.minHeight = px;
-  media.style.maxHeight = px;
   chat.style.height = px;
   chat.style.minHeight = px;
   chat.style.maxHeight = px;

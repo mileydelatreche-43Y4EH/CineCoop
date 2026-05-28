@@ -1384,9 +1384,7 @@ body.nav-menu-open {
     width: calc(100% - var(--hero-chat-w));
     margin: 0;
     padding: 0;
-    height: var(--hero-demo-video-h, auto);
-    min-height: 0;
-    max-height: var(--hero-demo-video-h, none);
+    height: auto;
     flex: none;
     align-self: auto;
   }
